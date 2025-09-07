@@ -26,27 +26,29 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <Container my={80} size="lg">
-      <Title align="center" mb="md">Subscribe to our Newsletter</Title>
-      <Grid justify="center">
-        <Grid.Col span={8} md={8} lg={6}>
-          <Paper withBorder shadow="md" p={30} radius="md">
-            <form onSubmit={handleSubmit}>
-              <TextInput
-                label="Email"
-                placeholder="you@example.com"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <Button type="submit" className='w/2' mt="md" disabled={loading} radius="xs">
-                {loading ? 'Submitting...' : 'Subscribe'}
-              </Button>
-              {message && <Text mt="md" align="center">{message}</Text>}
-            </form>
-          </Paper>
-        </Grid.Col>
-      </Grid>
-    </Container>
+    <div style={{ borderTop: '1px solid rgba(233, 236, 239, 0.3)', paddingTop: '60px' }}>
+      <Container my={80} size="lg">
+        <Grid justify="center">
+          <Grid.Col span={8} md={8} lg={6}>
+            <Paper withBorder shadow="md" p={30} radius="sm">
+              <Title align="center" mb="md">Subscribe to our Newsletter</Title>
+              <form onSubmit={handleSubmit}>
+                <TextInput
+                  label="Email"
+                  placeholder="you@example.com"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Button type="submit" className='w/2' mt="md" disabled={loading} radius="xs">
+                  {loading ? 'Submitting...' : 'Subscribe'}
+                </Button>
+                {message && <Text mt="md" align="center">{message}</Text>}
+              </form>
+            </Paper>
+          </Grid.Col>
+        </Grid>
+      </Container>
+    </div>
   );
 }

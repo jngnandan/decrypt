@@ -11,6 +11,7 @@ import { Notifications } from '@mantine/notifications';
 import { ModalsProvider } from '@mantine/modals';
 import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import HeaderMegaMenu from './Pages/Components/Header/Header';
+import { FooterLinks } from './Pages/Components/Footer/FooterLinks';
 import { ContentProvider } from './context/ContentContext';
 // import { AuthProvider } from '@/hooks';
 import { theme } from './theme';
@@ -39,6 +40,7 @@ export default function RootLayout({
                 <Notifications />
                 <HeaderMegaMenu />
                 {children}
+                <FooterLinks />
               </ContentProvider>
             </ErrorBoundary>
           </ModalsProvider>
