@@ -115,7 +115,7 @@ export default function AuthenticationForm() {
         <link rel="canonical" href="https://protocon.co.uk/login" />
       </Helmet>
 
-      <Container size={420} my={96}>
+      <Container size={420} my={60}>
         <header>
           <Title ta="center" className={classes.title}>
             Sign in to your account

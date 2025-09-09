@@ -26,12 +26,27 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <div style={{ borderTop: '1px solid rgba(233, 236, 239, 0.3)', paddingTop: '60px' }}>
-      <Container my={80} size="lg">
-        <Grid justify="center">
-          <Grid.Col span={8} md={8} lg={6}>
-            <Paper withBorder shadow="md" p={30} radius="sm">
-              <Title align="center" mb="md">Subscribe to our Newsletter</Title>
+    <div style={{ 
+      borderTop: '1px solid rgba(233, 236, 239, 0.3)', 
+      position: 'relative',
+      backgroundImage: 'url("https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2029&q=80")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      minHeight: '400px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
+      <Container size="lg" py="xl">
+        <Grid justify="center" style={{ width: '100%' }} gutter="xl">
+          <Grid.Col span={12} md={10} lg={8}>
+            <Paper withBorder shadow="xl" p={20} radius="md" style={{ 
+              backgroundColor: 'rgba(255, 255, 255, 0.98)',
+              backdropFilter: 'blur(15px)',
+              border: '1px solid rgba(255, 255, 255, 0.3)'
+            }}>
+              <Title align="center" mb="md" c="dark">Subscribe to our Newsletter</Title>
               <form onSubmit={handleSubmit}>
                 <TextInput
                   label="Email"
@@ -39,6 +54,7 @@ export default function NewsletterSignup() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  radius="xs"
                 />
                 <Button type="submit" className='w/2' mt="md" disabled={loading} radius="xs">
                   {loading ? 'Submitting...' : 'Subscribe'}

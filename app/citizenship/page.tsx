@@ -1,9 +1,9 @@
 'use client';
 
 import { Container, Box } from '@mantine/core';
-import SignupForm from '../Pages/Authentication/Signup/SignupForm';
+import CitizenshipApplicationForm from '../Pages/Authentication/Citizenship/CitizenshipApplicationForm';
 
-export default function SignupPage() {
+export default function CitizenshipPage() {
 
   return (
     <Box
@@ -15,7 +15,7 @@ export default function SignupPage() {
 
       {/* Main Content */}
       <Container size="sm" pt="xs" pb="xl">
-        <SignupForm />
+        <CitizenshipApplicationForm />
       </Container>
     </Box>
   );

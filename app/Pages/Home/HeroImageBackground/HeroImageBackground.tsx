@@ -2,6 +2,7 @@
 
 import cx from 'clsx';
 import { Button, Container, Overlay, Text, Title } from '@mantine/core';
+import Link from 'next/link';
 import classes from './HeroImageBackground.module.css';
 
 export function HeroImageBackground() {
@@ -24,7 +25,7 @@ export function HeroImageBackground() {
         </Container>
 
         <div className={classes.controls}>
-          <Button className={classes.control} variant="white" size="lg" radius="xs">
+          <Button className={classes.control} variant="white" size="lg" radius="xs" component={Link} href="/citizenship">
             Get Citizenship
           </Button>
           <Button className={cx(classes.control, classes.secondaryControl)} size="lg" radius="xs">

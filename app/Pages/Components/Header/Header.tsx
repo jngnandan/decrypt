@@ -93,7 +93,7 @@ export function HeaderMegaMenu() {
     <Box>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <div style={{ fontSize: '24px', fontWeight: 'bold' }}>Protocon</div>
+          <div style={{ fontSize: '24px', fontWeight: 'bold' }}>Decrypt</div>
 
           <Group h="100%" gap={0} visibleFrom="sm">
             <Link href="/" className={classes.link}>
