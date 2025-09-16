@@ -1,13 +1,11 @@
 'use client';
 
 import {
-  IconBook,
-  IconChartPie3,
   IconChevronDown,
-  IconCode,
-  IconCoin,
-  IconFingerprint,
-  IconNotification,
+  IconHeart,
+  IconBuilding,
+  IconCoins,
+  IconUsers,
 } from '@tabler/icons-react';
 import {
   Anchor,
@@ -35,34 +33,28 @@ import classes from './HeaderMegaMenu.module.css';
 
 const mockdata = [
   {
-    icon: IconCode,
-    title: 'Open source',
-    description: 'This Pokemon\'s cry is very loud and distracting',
+    icon: IconHeart,
+    title: 'Medicine',
+    description: 'Advanced medical solutions and healthcare innovations for better patient care',
+    href: '/medicine',
   },
   {
-    icon: IconCoin,
-    title: 'Free for everyone',
-    description: 'The fluid of Smeargle\'s tail secretions changes',
+    icon: IconBuilding,
+    title: 'Governance',
+    description: 'Transparent and efficient governance systems for modern organizations',
+    href: '/governance',
   },
   {
-    icon: IconBook,
-    title: 'Documentation',
-    description: 'Yanma is capable of seeing 360 degrees without',
+    icon: IconCoins,
+    title: 'Treasury',
+    description: 'Comprehensive financial management and treasury solutions for organizations',
+    href: '/treasury',
   },
   {
-    icon: IconFingerprint,
-    title: 'Security',
-    description: 'The shell\'s rounded shape and the grooves on its.',
-  },
-  {
-    icon: IconChartPie3,
-    title: 'Analytics',
-    description: 'This Pokemon uses its flying ability to quickly chase',
-  },
-  {
-    icon: IconNotification,
-    title: 'Notifications',
-    description: 'Combusken battles with the intensely hot flames it spews',
+    icon: IconUsers,
+    title: 'Socio political discourse',
+    description: 'Platforms for meaningful social and political dialogue and engagement',
+    href: '/socio-political',
   },
 ];
 
@@ -72,21 +64,23 @@ export function HeaderMegaMenu() {
   const theme = useMantineTheme();
 
   const links = mockdata.map((item) => (
-    <UnstyledButton className={classes.subLink} key={item.title}>
-      <Group wrap="nowrap" align="flex-start">
-        <ThemeIcon size={34} variant="default" radius="md">
-          <item.icon size={22} color={theme.colors.blue[6]} />
-        </ThemeIcon>
-        <div>
-          <Text size="sm" fw={500}>
-            {item.title}
-          </Text>
-          <Text size="xs" c="dimmed">
-            {item.description}
-          </Text>
-        </div>
-      </Group>
-    </UnstyledButton>
+    <Link href={item.href} key={item.title} style={{ textDecoration: 'none' }}>
+      <UnstyledButton className={classes.subLink}>
+        <Group wrap="nowrap" align="flex-start">
+          <ThemeIcon size={34} variant="default" radius="md">
+            <item.icon size={22} color={theme.colors.blue[6]} />
+          </ThemeIcon>
+          <div>
+            <Text size="sm" fw={500}>
+              {item.title}
+            </Text>
+            <Text size="xs" c="dimmed">
+              {item.description}
+            </Text>
+          </div>
+        </Group>
+      </UnstyledButton>
+    </Link>
   ));
 
   return (

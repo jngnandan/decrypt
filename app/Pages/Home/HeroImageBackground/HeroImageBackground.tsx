@@ -25,7 +25,7 @@ export function HeroImageBackground() {
         </Container>
 
         <div className={classes.controls}>
-          <Button className={classes.control} variant="white" size="lg" radius="xs" component={Link} href="/citizenship">
+          <Button className={classes.control} variant="white" size="lg" radius="xs" component={Link} href="/citizenship" style={{ marginRight: '24px' }}>
             Get Citizenship
           </Button>
           <Button className={cx(classes.control, classes.secondaryControl)} size="lg" radius="xs">

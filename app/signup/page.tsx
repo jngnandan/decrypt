@@ -4,17 +4,9 @@ import { Container, Box } from '@mantine/core';
 import SignupForm from '../Pages/Authentication/Signup/SignupForm';
 
 export default function SignupPage() {
-
   return (
-    <Box
-      style={{
-        minHeight: '100vh',
-        position: 'relative',
-      }}
-    >
-
-      {/* Main Content */}
-      <Container size="sm" pt="xs" pb="xl">
+    <Box bg="gray.0" mih="100vh">
+      <Container size="sm" py="xl">
         <SignupForm />
       </Container>
     </Box>

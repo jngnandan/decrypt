@@ -130,7 +130,7 @@ export default function SignupForm() {
           </Link>
         </Text>
 
-        <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+        <Paper withBorder shadow="lg" p={40} mt={30} radius="xl" bg="white">
           {initialLoading ? (
             <>
               <Skeleton height={36} radius="xl" mb="md" />
@@ -189,7 +189,7 @@ export default function SignupForm() {
                   onChange={(e) => setPassword(e.target.value)}
                   mb="md"
                 />
-                <Button type="submit" fullWidth mt="xl" loading={loading} radius="xs">
+                <Button type="submit" fullWidth mt="xl" loading={loading} radius="xl" size="md">
                   Sign up
                 </Button>
               </form>
