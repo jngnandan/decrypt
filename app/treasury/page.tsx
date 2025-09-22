@@ -150,7 +150,7 @@ export default function TreasuryPage() {
 
   return (
     <Box bg="gray.0" mih="100vh">
-      <Container size="xl" py="xl">
+      <Container size="lg" py="xl">
         {/* Header Navigation */}
         {/* <Paper shadow="md" p="md" mb="xl" radius="md" bg="white">
           <Group justify="space-between">
@@ -172,8 +172,12 @@ export default function TreasuryPage() {
           </Group>
         </Paper> */}
 
-        {/* Breadcrumb Navigation */}
-        <Group mb="xl">
+      
+
+        {/* Page Header */}
+ <Paper shadow="xs" p="2xl" withBorder mb="xl" radius="sm" bg="white" >
+    {/* Breadcrumb Navigation */}
+    <Group mb="xl">
           <ActionIcon variant="light" color="blue" size="sm">
             <IconHome size={14} />
           </ActionIcon>
@@ -181,26 +185,28 @@ export default function TreasuryPage() {
             {breadcrumbItems}
           </Breadcrumbs>
         </Group>
+ <Box className="flex flex-row justify-center">
 
-        {/* Page Header */}
-        <Paper shadow="md" p="lg" mb="xl" radius="sm" bg="white">
-          <Stack gap="xs">
-            <Group align="center" gap="sm">
-              <ThemeIcon size="xl" color="blue">
-                <IconWallet size={20} />
-              </ThemeIcon>
-              <div>
-                <Title order={1} size="h1" fw={800} c="black">Treasury Dashboard</Title>
-                <Text c="dimmed" size="lg">Manage your organization's financial resources</Text>
-              </div>
-            </Group>
-          </Stack>
-        </Paper>
+ <Stack gap="xs">
+   <Group align="center" gap="sm">
+     <ThemeIcon size="xl" color="blue" variant="light">
+       <IconWallet size={22} />
+     </ThemeIcon>
+     <div>
+       <Title order={1} size="h1" fw={800} c="black">Treasury Dashboard</Title>
+       <Text c="dimmed" size="lg">Manage your organization's financial resources</Text>
+     </div>
+   </Group>
+ </Stack>
+ </Box>
+
+</Paper>
+       
 
         {/* Treasury Stats */}
-        <Paper shadow="md" p="lg" mb="xl" radius="sm" bg="white">
+        <Paper shadow="xs" withBorder p="lg" mb="xl" radius="sm" bg="white">
           <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="lg">
-            <Card shadow="sm" p="xl" radius="sm" bg="white">
+            <Card withBorder shadow="xs" p="xl" radius="sm" bg="white">
               <Stack gap="sm">
                 <Group justify="space-between">
                   <ThemeIcon size="lg" variant="light" color="blue">
@@ -217,7 +223,7 @@ export default function TreasuryPage() {
                 </div>
               </Stack>
             </Card>
-            <Card shadow="sm" p="xl" radius="sm" bg="white">
+            <Card withBorder shadow="xs" p="xl" radius="sm" bg="white">
               <Stack gap="sm">
                 <Group justify="space-between">
                   <ThemeIcon size="lg" variant="light" color="blue">
@@ -234,7 +240,7 @@ export default function TreasuryPage() {
                 </div>
               </Stack>
             </Card>
-            <Card shadow="sm" p="xl" radius="sm" bg="white">
+            <Card withBorder shadow="xs" p="xl" radius="sm" bg="white">
               <Stack gap="sm">
                 <Group justify="space-between">
                   <ThemeIcon size="lg" variant="light" color="blue">
@@ -249,7 +255,7 @@ export default function TreasuryPage() {
                 </div>
               </Stack>
             </Card>
-            <Card shadow="sm" p="xl" radius="sm" bg="white">
+            <Card withBorder shadow="xs" p="xl" radius="sm" bg="white">
               <Stack gap="sm">
                 <Group justify="space-between">
                   <ThemeIcon size="lg" variant="light" color="blue">
@@ -268,7 +274,7 @@ export default function TreasuryPage() {
         </Paper>
 
         {/* Proposals Section */}
-        <Paper shadow="md" p="lg" mb="xl" radius="sm" bg="white">
+        <Paper withBorder shadow="xs" p="lg" mb="xl" radius="sm" bg="white">
           <Grid>
             <Grid.Col span={{ base: 12, md: 4 }}>
               <Stack gap="xl">
@@ -304,7 +310,7 @@ export default function TreasuryPage() {
                   <ScrollArea.Autosize mah={150}>
                     <Stack gap="sm">
                       {approvedProposals.map((proposal, index) => (
-                        <Paper key={index} shadow="xs" p="md" radius="sm" bg="white">
+                        <Paper key={index}  shadow="xs" p="md" radius="sm" bg="white">
                           <Group justify="space-between">
                             <Group>
                               <ThemeIcon 
@@ -377,7 +383,7 @@ export default function TreasuryPage() {
         </Paper>
 
         {/* Expenses Table */}
-        <Paper shadow="md" p="lg" radius="sm" bg="white" mb="xl">
+        <Paper withBorder shadow="xs" p="lg" radius="sm" bg="white" mb="xl">
           <Group justify="space-between" mb="lg">
             <div>
               <Title order={3} fw={700}>Expense History</Title>
