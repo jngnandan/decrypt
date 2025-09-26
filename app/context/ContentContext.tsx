@@ -167,10 +167,26 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const fetchProfilesData = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://${domainName}:${backendPort}/profiles`);
-      if (!response.ok) throw new Error('Failed to fetch data');
-      const data = await response.json();
-      setProfilesData(data);
+      // Mock data since backend is not available
+      const mockData = [
+        {
+          id: '1',
+          name: 'John Doe',
+          role: 'Senior Developer',
+          description: 'Experienced full-stack developer with expertise in React and Node.js',
+          avatar: '/placeholder-avatar.jpg',
+          skills: ['React', 'Node.js', 'TypeScript']
+        },
+        {
+          id: '2',
+          name: 'Jane Smith',
+          role: 'UI/UX Designer',
+          description: 'Creative designer focused on user experience and interface design',
+          avatar: '/placeholder-avatar.jpg',
+          skills: ['Figma', 'Design Systems', 'Prototyping']
+        }
+      ];
+      setProfilesData(mockData);
     } catch (error) {
       console.error('Error fetching profiles data:', error);
     } finally {
@@ -181,9 +197,28 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const fetchProfileById = async (id: string) => {
     try {
       setLoading(true);
-      const response = await fetch(`http://${domainName}:${backendPort}/profiles/${id}`);
-      if (!response.ok) throw new Error('Failed to fetch data');
-      return await response.json();
+      // Mock data since backend is not available
+      const mockProfiles = {
+        '1': {
+          id: '1',
+          name: 'John Doe',
+          role: 'Senior Developer',
+          description: 'Experienced full-stack developer with expertise in React and Node.js',
+          avatar: '/placeholder-avatar.jpg',
+          skills: ['React', 'Node.js', 'TypeScript'],
+          experience: '5+ years'
+        },
+        '2': {
+          id: '2',
+          name: 'Jane Smith',
+          role: 'UI/UX Designer',
+          description: 'Creative designer focused on user experience and interface design',
+          avatar: '/placeholder-avatar.jpg',
+          skills: ['Figma', 'Design Systems', 'Prototyping'],
+          experience: '3+ years'
+        }
+      };
+      return mockProfiles[id as keyof typeof mockProfiles] || null;
     } catch (error) {
       console.error(`Error fetching profile with ID ${id}:`, error);
       return null;
