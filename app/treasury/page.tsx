@@ -161,7 +161,6 @@ export default function TreasuryPage() {
               <Group gap="xl" visibleFrom="sm">
                 <Anchor href="#" fw={500} c="dark.7" td="none">Home</Anchor>
                 <Anchor href="#" fw={500} c="dark.7" td="none">Features</Anchor>
-                <Anchor href="#" fw={500} c="dark.7" td="none">Mentors</Anchor>
                 <Anchor href="#" fw={500} c="dark.7" td="none">About</Anchor>
               </Group>
             </Group>
