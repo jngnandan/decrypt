@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 import { HeroImageBackground } from "./HeroImageBackground/HeroImageBackground";
 import { FeaturesTitle } from "./FeaturesTitle/FeaturesTitle";
 import { FeaturesGrid } from "./FeaturesGrid/FeaturesGrid";
+import { StatsGrid } from "./StatsGrid/StatsGrid";
 import { ArticlesCardsGrid } from "./ArticlesCardsGrid/ArticlesCardsGrid";
 import NewsletterSignup from "./NewsLetter/NewsletterSignup";
 
@@ -44,6 +45,9 @@ function HomePage() {
 
       {/* Features Grid Section */}
       <FeaturesGrid />
+
+      {/* Stats Section */}
+      <StatsGrid />
 
       {/* Features Section */}
       <FeaturesTitle />
