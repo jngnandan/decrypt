@@ -102,8 +102,7 @@ export function LoginForm({ onSwitchToRegister, onForgotPassword }: LoginFormPro
 
         <TextInput
           label="Email"
-          placeholder="Enter your email"
-          leftSection={<IconMail size={16} />}
+          placeholder="Your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -111,14 +110,13 @@ export function LoginForm({ onSwitchToRegister, onForgotPassword }: LoginFormPro
 
         <PasswordInput
           label="Password"
-          placeholder="Enter your password"
-          leftSection={<IconLock size={16} />}
+          placeholder="Your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
 
-        <Group justify="space-between">
+        <Group justify="space-between" mt="md">
           <Checkbox
             label="Remember me"
             checked={rememberMe}
@@ -136,22 +134,12 @@ export function LoginForm({ onSwitchToRegister, onForgotPassword }: LoginFormPro
         <Button
           type="submit"
           fullWidth
+          mt="xl"
           loading={isLoading}
           disabled={isLoading}
         >
-          {isLoading ? 'Signing in...' : 'Sign In'}
+          Sign in
         </Button>
-
-        <Text ta="center" size="sm" c="dimmed">
-          Don't have an account?{' '}
-          <Anchor
-            size="sm"
-            onClick={onSwitchToRegister}
-            style={{ cursor: 'pointer' }}
-          >
-            Sign up
-          </Anchor>
-        </Text>
       </Stack>
     </form>
   );
