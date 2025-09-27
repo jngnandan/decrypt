@@ -15,16 +15,16 @@ const customBlue: MantineColorsTuple = [
 ];
 
 const customGray: MantineColorsTuple = [
-  '#f8fafc',
-  '#f1f5f9',
-  '#e2e8f0',
-  '#cbd5e1',
-  '#94a3b8',
-  '#64748b',
-  '#475569',
-  '#334155',
-  '#1e293b',
-  '#0f172a'
+  '#fafbfc',
+  '#f3f4f6',
+  '#e5e7eb',
+  '#d1d5db',
+  '#9ca3af',
+  '#6b7280',
+  '#4b5563',
+  '#374151',
+  '#1f2937',
+  '#1a1d29'
 ];
 
 const customGreen: MantineColorsTuple = [
@@ -113,15 +113,15 @@ export const theme = createTheme({
     orange: customOrange,
   },
   
-  /** Enhanced spacing scale */
+  /** Enhanced spacing scale - BlaBlaCar style */
   spacing: {
     xs: '0.5rem',
-    sm: '0.75rem',
-    md: '1rem',
-    lg: '1.5rem',
-    xl: '2rem',
-    '2xl': '3rem',
-    '3xl': '4rem',
+    sm: '0.875rem',
+    md: '1.25rem',
+    lg: '2rem',
+    xl: '3rem',
+    '2xl': '4rem',
+    '3xl': '6rem',
   },
   
   /** Enhanced border radius scale */

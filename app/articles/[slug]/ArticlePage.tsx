@@ -403,11 +403,11 @@ export default function ArticlePage({ slug }: { slug: string }) {
     });
 
   return (
-    <Container size="xl" py={40}>
-      <Grid>
+    <Container size="xl" py={60}>
+      <Grid gutter="xl">
         {/* Main Article Content */}
         <Grid.Col span={{ base: 12, md: 9 }}>
-          <Paper p={40} radius="md">
+          <Paper p={60} radius="md">
             {/* Article Header */}
             <img 
               src={article.image} 
