@@ -26,25 +26,36 @@ export default function TableOfContents({ data }: TableOfContentsProps) {
           if (entry.isIntersecting) {
             const activeIndex = data.findIndex(item => item.link === `#${entry.target.id}`);
             if (activeIndex !== -1) {
+              console.log('Setting active to:', activeIndex, entry.target.id);
               setActive(activeIndex);
             }
           }
         });
       },
-      { rootMargin: '-20% 0% -35% 0%' }
+      { 
+        rootMargin: '-100px 0px -66%',
+        threshold: 0.1
+      }
     );
 
     // Add delay to ensure DOM is ready
-    setTimeout(() => {
-      data.forEach((item) => {
+    const timer = setTimeout(() => {
+      console.log('Observing headings for TOC...');
+      data.forEach((item, index) => {
         const element = document.querySelector(item.link);
         if (element) {
+          console.log(`Observing ${item.link} (index: ${index}):`, element);
           observer.observe(element);
+        } else {
+          console.warn(`Element not found for ${item.link}`);
         }
       });
-    }, 500);
+    }, 1000);
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, [data]);
 
   const items = data.map((item, index) => (
