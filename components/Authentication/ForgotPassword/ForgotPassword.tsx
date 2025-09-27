@@ -31,11 +31,15 @@ export function ForgotPassword() {
     setMessage('');
 
     try {
-      await sendPasswordResetEmail(auth, email);
-      setMessage('Password reset email sent. Please check your inbox.');
+      if (auth) {
+        await sendPasswordResetEmail(auth, email);
+        setMessage('Password reset email sent. Please check your inbox.');
+      } else {
+        setMessage('Authentication service is currently unavailable.');
+      }
     } catch (error) {
       console.error('Error sending password reset email:', error);
-      setMessage(`Error: ${error.message}`);
+      setMessage(`Error: ${error instanceof Error ? error.message : 'An unknown error occurred'}`);
     } finally {
       setIsLoading(false);
     }
