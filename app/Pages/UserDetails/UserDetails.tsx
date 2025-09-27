@@ -13,13 +13,13 @@ function UserDetails() {
   const { setPaymentOptions } = useContext(ContentContext);
   const [bookingStep, setBookingStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTime, setSelectedTime] = useState(null);
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [selectedPlan, setSelectedPlan] = useState('');
   const [userInfo, setUserInfo] = useState({
     name: '',
     email: '',
     contactNumber: '',
-    chiefConcern: [],
+    chiefConcern: [] as string[],
   });
 
   const plans = [
@@ -92,7 +92,7 @@ function UserDetails() {
         {/* Left Column - Booking Form */}
         <Card className="flex-1" withBorder radius="md">
           {bookingStep === 1 ? (
-            <Stack spacing="md">
+            <Stack gap="md">
               <Card.Section withBorder inheritPadding py="xs">
                 <Text size="lg" fw={600}>Select Date & Time</Text>
               </Card.Section>
@@ -104,7 +104,7 @@ function UserDetails() {
                   value={selectedDate ? selectedDate.toISOString().split('T')[0] : ''}
                   onChange={(e) => setSelectedDate(new Date(e.target.value))}
                   min={new Date().toISOString().split('T')[0]}
-                  fullWidth
+                  w="100%"
                 />
               </Card.Section>
 
@@ -114,14 +114,14 @@ function UserDetails() {
                   placeholder="Europe/London - BST (+01:00)"
                   data={[{ value: 'Europe/London', label: 'Europe/London - BST (+01:00)' }]}
                 />
-                <Text weight={500} mt="md" mb="xs">Available Time Slots</Text>
+                <Text fw={500} mt="md" mb="xs">Available Time Slots</Text>
                 <div className="grid grid-cols-2 gap-4">
                   {timeSlots.map(slot => (
                     <Button
                       key={slot.value}
                       variant={selectedTime === slot.value ? 'filled' : 'outline'}
                       onClick={() => setSelectedTime(slot.value)}
-                      fullWidth
+                      w="100%"
                     >
                       {slot.label}
                     </Button>
@@ -134,13 +134,13 @@ function UserDetails() {
               </Button>
             </Stack>
           ) : (
-            <Stack spacing="md">
+            <Stack gap="md">
               <Card.Section withBorder inheritPadding py="xs">
                 <Text size="lg" fw={600}>Your Information</Text>
               </Card.Section>
 
               <Card.Section inheritPadding py="md">
-                <Stack spacing="md">
+                <Stack gap="md">
                   <TextInput
                     label="Name"
                     placeholder="Your full name"
@@ -159,7 +159,7 @@ function UserDetails() {
                     label="Contact Number"
                     placeholder="+91 1234567890"
                     required
-                    icon={<span>🇮🇳</span>}
+                    leftSection={<span>🇮🇳</span>}
                     value={userInfo.contactNumber}
                     onChange={(e) => setUserInfo({ ...userInfo, contactNumber: e.target.value })}
                   />
@@ -167,8 +167,8 @@ function UserDetails() {
               </Card.Section>
 
               <Card.Section withBorder inheritPadding py="md">
-                <Text weight={500} mb="xs">Chief Concern</Text>
-                <Box sx={{ maxHeight: '200px', overflowY: 'auto' }}>
+                <Text fw={500} mb="xs">Chief Concern</Text>
+                <Box style={{ maxHeight: '200px', overflowY: 'auto' }}>
                   {concerns.map(concern => (
                     <Checkbox
                       key={concern}

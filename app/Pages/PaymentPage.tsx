@@ -4,15 +4,18 @@ import React, { useContext, useState, useEffect } from 'react';
 import { usePathname, useRouter } from "next/navigation";
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import { ContentContext } from '../context/ContentContext.tsx';
-import PaymentForm from './PaymentForm.tsx';
+import { ContentContext } from '../context/ContentContext';
+import PaymentForm from './PaymentForm';
 import { IconCalendar, IconClock, IconUser, IconMail, IconPhone, IconCheck } from '@tabler/icons-react';
 import { Card, Text, Group, Stack, SimpleGrid, Button, TextInput } from '@mantine/core';
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(process.env.REACT_APP_SUPABASE_URL, process.env.REACT_APP_SUPABASE_ANON_KEY);
+const supabase = createClient(
+  process.env.REACT_APP_SUPABASE_URL || '', 
+  process.env.REACT_APP_SUPABASE_ANON_KEY || ''
+);
 
-const updateBookingInProfile = async (profileId, bookingDetails) => {
+const updateBookingInProfile = async (profileId: string, bookingDetails: any) => {
   try {
     console.log('Updating profile with ID:', profileId, 'and booking details:', bookingDetails);
     const { data, error } = await supabase
@@ -35,9 +38,9 @@ const updateBookingInProfile = async (profileId, bookingDetails) => {
 
 
 // Confirmation Screen Component
-const ConfirmationScreen = ({ bookingDetails }) => {
-  const navigate = useRouter();
-  const formatDate = (date) => {
+const ConfirmationScreen = ({ bookingDetails }: { bookingDetails: any }) => {
+  const router = useRouter();
+  const formatDate = (date: Date) => {
     return new Date(date).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
@@ -108,8 +111,8 @@ const ConfirmationScreen = ({ bookingDetails }) => {
 
 const PaymentPage = () => {
   const location = usePathname();
-  const navigate = useRouter();
-  const { paymentDetails } = location.state || {};
+  const router = useRouter();
+  const paymentDetails = {}; // TODO: Use Next.js search params or context for payment details
   const [stripePromise, setStripePromise] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -153,7 +156,7 @@ const PaymentPage = () => {
     initializeStripe();
   }, []);
 
-  const formatDate = (date) => {
+  const formatDate = (date: Date) => {
     if (!date) return 'Date not set';
     return new Date(date).toLocaleDateString('en-US', {
       year: 'numeric',
