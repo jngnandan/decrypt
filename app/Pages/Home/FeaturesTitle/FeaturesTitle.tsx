@@ -1,149 +1,75 @@
 'use client';
 
-import { IconShield, IconLock, IconCheck, IconUsers, IconEye } from '@tabler/icons-react';
-import { Button, Container, Text, Title, Group, Stack, Card, SimpleGrid, Box, ThemeIcon } from '@mantine/core';
+import { IconGauge, IconUser, IconCookie, IconLock, IconMessage2 } from '@tabler/icons-react';
+import { Button, Grid, SimpleGrid, Text, ThemeIcon, Title } from '@mantine/core';
+import classes from './FeaturesTitle.module.css';
+
+const features: any[] = [
+  // {
+  //   icon: IconGauge,
+  //   title: 'Extreme performance',
+  //   description: 'This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit',
+  // },
+  // {
+  //   icon: IconUser,
+  //   title: 'Privacy focused',
+  //   description: 'People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma',
+  // },
+  // {
+  //   icon: IconCookie,
+  //   title: 'No third parties',
+  //   description: 'They\'re popular, but they\'re rare. Trainers who show them off recklessly may be targeted by thieves',
+  // },
+  // {
+  //   icon: IconLock,
+  //   title: 'Secure by default',
+  //   description: 'Although it still can\'t fly, its jumping power is outstanding, in Alola the mushrooms on Paras don\'t grow up quite right',
+  // },
+  // {
+  //   icon: IconMessage2,
+  //   title: '24/7 Support',
+  //   description: 'Rapidash usually can be seen casually cantering in the fields and plains, Skitty is known to chase around after its own tail',
+  // },
+];
 
 export function FeaturesTitle() {
+  const items = features.map((feature) => (
+    <div key={feature.title}>
+      <ThemeIcon
+        size={44}
+        radius="md"
+        variant="gradient"
+        gradient={{ from: 'blue', to: 'cyan' }}
+      >
+        <feature.icon size={26} stroke={1.5} />
+      </ThemeIcon>
+      <Text fz="lg" mt="sm" fw={500}>
+        {feature.title}
+      </Text>
+      <Text c="dimmed" fz="sm">
+        {feature.description}
+      </Text>
+    </div>
+  ));
+
   return (
-    <div style={{ backgroundColor: '#fff', paddingTop: '80px', paddingBottom: '80px' }}>
-      <Container size="lg">
-        {/* Trust Section */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '60px', marginBottom: '80px' }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-              <ThemeIcon size={64} radius="md" style={{ backgroundColor: '#fff0e6', border: '2px solid #ff6b35' }}>
-                <IconShield size={32} style={{ color: '#ff6b35' }} stroke={1.8} />
-              </ThemeIcon>
-              <Title order={2} style={{ fontSize: '32px', fontWeight: 700, color: '#1c1c1c' }}>
-                Your success is our priority
-              </Title>
-            </div>
-            
-            <Text size="lg" style={{ color: '#666', lineHeight: 1.6, marginBottom: '24px' }}>
-              At Protocon, we're committed to creating meaningful mentorship connections that drive real results. 
-              Our platform ensures quality matches, verified mentors, and a secure environment for professional growth. 
-              Your journey to success starts with the right guidance.
-            </Text>
-            
-            <Button 
-              size="lg"
-              style={{
-                backgroundColor: '#00aff0',
-                borderRadius: '8px',
-                padding: '12px 32px',
-                fontSize: '16px',
-                fontWeight: 600,
-                border: 'none'
-              }}
-            >
-              Get started
-            </Button>
-          </div>
-          
-          <div style={{ width: '300px', textAlign: 'center' }}>
-            <div style={{ 
-              width: '200px', 
-              height: '200px', 
-              backgroundColor: '#f0f9ff', 
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto',
-              border: '3px solid #00aff0'
-            }}>
-              <IconUsers size={80} style={{ color: '#00aff0' }} stroke={1.5} />
-            </div>
-          </div>
-        </div>
+    <div className={classes.wrapper}>
+      <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+        <Title className={classes.title} order={2}>
+          Blockchain Governance
+        </Title>
+        <Text c="dimmed" size="md" style={{ marginTop: 'var(--mantine-spacing-lg)', marginBottom: 'var(--mantine-spacing-xl)' }}>
+        Decrypt is growing as a community built on freedom, where governance is open-source and powered by the blockchain. Its constitution lives on-chain, making laws transparent and participation easy for anyone who shares its values. Citizens are free to start businesses, join institutions, and shape the future together under Decrypt's digital-first legal system.
+        </Text>
 
-        {/* Popular Mentorship Areas */}
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <Title order={2} style={{ fontSize: '36px', fontWeight: 700, color: '#1c1c1c', marginBottom: '16px' }}>
-            What would you like to work on?
-          </Title>
-          <Text size="lg" style={{ color: '#666', maxWidth: '600px', margin: '0 auto' }}>
-            Explore our most popular mentorship areas and find the perfect match for your development goals
-          </Text>
-        </div>
-
-        <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg" style={{ marginBottom: '60px' }}>
-          <Card radius="lg" style={{ border: '1px solid #e9ecef', textAlign: 'center', padding: '32px' }}>
-            <Text fw={600} size="lg" style={{ color: '#1c1c1c', marginBottom: '8px' }}>
-              Career Development
-            </Text>
-            <Text size="sm" style={{ color: '#666', marginBottom: '16px' }}>
-              Strategic career planning and advancement
-            </Text>
-            <Text fw={600} style={{ color: '#00aff0', fontSize: '18px' }}>
-              500+ mentors available
-            </Text>
-          </Card>
-
-          <Card radius="lg" style={{ border: '1px solid #e9ecef', textAlign: 'center', padding: '32px' }}>
-            <Text fw={600} size="lg" style={{ color: '#1c1c1c', marginBottom: '8px' }}>
-              Leadership Skills
-            </Text>
-            <Text size="sm" style={{ color: '#666', marginBottom: '16px' }}>
-              Develop executive presence and team management
-            </Text>
-            <Text fw={600} style={{ color: '#00aff0', fontSize: '18px' }}>
-              350+ mentors available
-            </Text>
-          </Card>
-
-          <Card radius="lg" style={{ border: '1px solid #e9ecef', textAlign: 'center', padding: '32px' }}>
-            <Text fw={600} size="lg" style={{ color: '#1c1c1c', marginBottom: '8px' }}>
-              Technical Skills
-            </Text>
-            <Text size="sm" style={{ color: '#666', marginBottom: '16px' }}>
-              Programming, design, and technical expertise
-            </Text>
-            <Text fw={600} style={{ color: '#00aff0', fontSize: '18px' }}>
-              800+ mentors available
-            </Text>
-          </Card>
-        </SimpleGrid>
-
-        {/* Call to Action */}
-        <div style={{ textAlign: 'center', backgroundColor: '#f8f9fa', borderRadius: '16px', padding: '60px 40px' }}>
-          <Title order={2} style={{ fontSize: '28px', fontWeight: 700, color: '#1c1c1c', marginBottom: '16px' }}>
-            Ready to accelerate your growth?
-          </Title>
-          <Text size="lg" style={{ color: '#666', marginBottom: '32px', maxWidth: '500px', margin: '0 auto 32px' }}>
-            Join thousands of professionals who have transformed their careers through meaningful mentorship connections.
-          </Text>
-          <Group justify="center" gap="lg">
-            <Button 
-              size="lg"
-              style={{
-                backgroundColor: '#00aff0',
-                borderRadius: '8px',
-                padding: '12px 32px',
-                fontSize: '16px',
-                fontWeight: 600,
-                border: 'none'
-              }}
-            >
-              Find a mentor
-            </Button>
-            <Button 
-              variant="outline"
-              size="lg"
-              style={{
-                borderColor: '#00aff0',
-                color: '#00aff0',
-                borderRadius: '8px',
-                padding: '12px 32px',
-                fontSize: '16px',
-                fontWeight: 600
-              }}
-            >
-              Become a mentor
-            </Button>
-          </Group>
-        </div>
-      </Container>
+        <Button
+          variant="outline"
+          size="lg"
+          radius="sm"
+        >
+          Get started
+        </Button>
+      </div>
     </div>
   );
 }
