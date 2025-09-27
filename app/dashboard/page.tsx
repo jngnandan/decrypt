@@ -116,25 +116,45 @@ export default function DashboardPage() {
           return;
         }
         
-        // For demo purposes, allow access to dashboard
+        // For demo purposes, allow access to dashboard and set global auth
         console.log('Dashboard: No authentication found, allowing demo access');
-        setUser({
+        const demoUser = {
           id: 'demo',
           email: 'demo@example.com',
           name: 'Demo User',
           displayName: 'Demo User'
-        });
+        };
+        
+        // Set demo user for header to detect
+        try {
+          document.cookie = `user=${btoa(JSON.stringify(demoUser))}; path=/; max-age=3600`;
+          (window as any).__user = demoUser;
+        } catch (e) {
+          console.log('Failed to set demo user globally');
+        }
+        
+        setUser(demoUser);
         setIsAuthenticated(true);
         
       } catch (error) {
         console.log('Dashboard: Auth error:', error);
-        // Still allow demo access
-        setUser({
+        // Still allow demo access and set global auth
+        const demoUser = {
           id: 'demo',
           email: 'demo@example.com', 
           name: 'Demo User',
           displayName: 'Demo User'
-        });
+        };
+        
+        // Set demo user for header to detect
+        try {
+          document.cookie = `user=${btoa(JSON.stringify(demoUser))}; path=/; max-age=3600`;
+          (window as any).__user = demoUser;
+        } catch (e) {
+          console.log('Failed to set demo user globally');
+        }
+        
+        setUser(demoUser);
         setIsAuthenticated(true);
       }
     };
