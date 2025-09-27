@@ -106,10 +106,18 @@ function getCategoryColor(category: string) {
 }
 
 export function ArticleCard({ article }: { article: typeof mockdata[0] }) {
+  const handleClick = () => {
+    const slug = article.title.toLowerCase()
+      .replace(/[^a-z0-9\s]/g, '')
+      .replace(/\s+/g, '-');
+    window.location.href = `/articles/${slug}`;
+  };
+
   return (
     <Card
       shadow="sm"
       radius="lg"
+      onClick={handleClick}
       style={{
         border: '1px solid #e9ecef',
         transition: 'all 0.3s ease',
