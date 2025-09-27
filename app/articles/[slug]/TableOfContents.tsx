@@ -26,7 +26,6 @@ export default function TableOfContents({ data }: TableOfContentsProps) {
           if (entry.isIntersecting) {
             const activeIndex = data.findIndex(item => item.link === `#${entry.target.id}`);
             if (activeIndex !== -1) {
-              console.log('Setting active to:', activeIndex, entry.target.id);
               setActive(activeIndex);
             }
           }
@@ -40,14 +39,10 @@ export default function TableOfContents({ data }: TableOfContentsProps) {
 
     // Add delay to ensure DOM is ready
     const timer = setTimeout(() => {
-      console.log('Observing headings for TOC...');
       data.forEach((item, index) => {
         const element = document.querySelector(item.link);
         if (element) {
-          console.log(`Observing ${item.link} (index: ${index}):`, element);
           observer.observe(element);
-        } else {
-          console.warn(`Element not found for ${item.link}`);
         }
       });
     }, 1000);
