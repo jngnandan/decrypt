@@ -10,7 +10,8 @@ import { TableOfContents } from './TableOfContents'; // Adjust the import path a
 
 function UserDetails() {
   const router = useRouter();
-  const { setPaymentOptions } = useContext(ContentContext);
+  const context = useContext(ContentContext);
+  const setPaymentOptions = context?.setPaymentOptions || (() => {});
   const [bookingStep, setBookingStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
@@ -62,7 +63,7 @@ function UserDetails() {
     router.push('/payment');
   };
 
-  const formatDate = (date) => {
+  const formatDate = (date: Date) => {
     return date.toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',

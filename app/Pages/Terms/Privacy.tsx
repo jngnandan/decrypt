@@ -5,10 +5,10 @@ function Privacy() {
   return (
     <Container size="md" className="my-20">
       <Paper shadow="xs" p="xl" withBorder>
-        <Title order={1} align="center" mb="xl">
+        <Title order={1} ta="center" mb="xl">
           Privacy Policy for Decrypt
         </Title>
-        <Text align="center" color="dimmed" mb="xl">
+        <Text ta="center" c="dimmed" mb="xl">
           Effective Date: October 10, 2024
         </Text>
 
@@ -26,19 +26,19 @@ function Privacy() {
                 <Text mb="md">We collect several types of information for various purposes to provide and improve our service to you:</Text>
                 <List spacing="sm">
                   <List.Item>
-                    <Text weight={500}>Personal Information:</Text> This includes information you provide when registering or using our service, such as your name, email address, phone number, professional background, and areas of expertise or interest.
+                    <Text fw={500}>Personal Information:</Text> This includes information you provide when registering or using our service, such as your name, email address, phone number, professional background, and areas of expertise or interest.
                   </List.Item>
                   <List.Item>
-                    <Text weight={500}>Profile Information:</Text> Any additional information you choose to add to your profile, such as your photo, bio, education history, or professional achievements.
+                    <Text fw={500}>Profile Information:</Text> Any additional information you choose to add to your profile, such as your photo, bio, education history, or professional achievements.
                   </List.Item>
                   <List.Item>
-                    <Text weight={500}>Usage Data:</Text> Information about how you access and use the application, including your IP address, browser type and version, time zone setting, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access our service.
+                    <Text fw={500}>Usage Data:</Text> Information about how you access and use the application, including your IP address, browser type and version, time zone setting, browser plug-in types and versions, operating system and platform, and other technology on the devices you use to access our service.
                   </List.Item>
                   <List.Item>
-                    <Text weight={500}>Communication Data:</Text> Information from your communications with us or other users through the platform, such as emails, messages, or video calls. Please note that we do not store the content of your video calls, but we may keep metadata such as call duration and participants.
+                    <Text fw={500}>Communication Data:</Text> Information from your communications with us or other users through the platform, such as emails, messages, or video calls. Please note that we do not store the content of your video calls, but we may keep metadata such as call duration and participants.
                   </List.Item>
                   <List.Item>
-                    <Text weight={500}>Payment Information:</Text> If you make payments through our platform, we collect information necessary to process your payment. This may include your payment card details, bank account information, or other financial information. However, we do not store complete payment information on our servers. This data is securely handled through our trusted payment processor.
+                    <Text fw={500}>Payment Information:</Text> If you make payments through our platform, we collect information necessary to process your payment. This may include your payment card details, bank account information, or other financial information. However, we do not store complete payment information on our servers. This data is securely handled through our trusted payment processor.
                   </List.Item>
                 </List>
               </>

@@ -105,7 +105,7 @@ export default function TreasuryPage() {
     </Anchor>
   ));
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
       case "approved": return "green";
       case "pending": return "yellow";
@@ -114,7 +114,7 @@ export default function TreasuryPage() {
     }
   };
 
-  const getPriorityColor = (priority) => {
+  const getPriorityColor = (priority: string) => {
     switch (priority) {
       case "high": return "red";
       case "medium": return "yellow";
@@ -416,7 +416,7 @@ export default function TreasuryPage() {
         <Center mb="xl">
           <Pagination 
             total={5} 
-            page={page} 
+            value={page} 
             onChange={setPage} 
             radius="sm" 
             color="blue"

@@ -88,8 +88,8 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
   useEffect(() => {
     const checkSession = async () => {
       if (supabase) {
-        const { data: { session } } = await supabase.auth.getSession();
-        authDispatch({ type: 'SET_USER', payload: session?.user || null });
+        // const { data: { session } } = await supabase.auth.getSession();
+        // authDispatch({ type: 'SET_USER', payload: session?.user || null });
       } else {
         // Mock session when Supabase is disabled
         authDispatch({ type: 'SET_USER', payload: null });
@@ -99,23 +99,23 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     checkSession();
 
     if (supabase) {
-      const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
-        authDispatch({ type: 'SET_USER', payload: session?.user || null });
-      });
+      // const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+      //   authDispatch({ type: 'SET_USER', payload: session?.user || null });
+      // });
 
-      return () => {
-        authListener?.subscription.unsubscribe();
-      };
+      // return () => {
+      //   authListener?.subscription.unsubscribe();
+      // };
     }
   }, []);
 
   useEffect(() => {
     if (auth) {
-      const unsubscribe = auth.onAuthStateChanged((user) => {
-        authDispatch({ type: 'SET_USER', payload: user });
-      });
+      // const unsubscribe = auth.onAuthStateChanged((user) => {
+      //   authDispatch({ type: 'SET_USER', payload: user });
+      // });
 
-      return () => unsubscribe();
+      // return () => unsubscribe();
     }
   }, []);
 
@@ -137,7 +137,7 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const signOut = async () => {
     try {
       if (auth) {
-        await auth.signOut();
+        // await auth.signOut();
       }
       authDispatch({ type: 'SET_USER', payload: null });
     } catch (error) {
@@ -150,9 +150,9 @@ export const ContentProvider: React.FC<{ children: React.ReactNode }> = ({ child
     try {
       setLoading(true);
       if (supabase) {
-        const { data, error } = await supabase.from('profiles').select('*');
-        if (error) throw error;
-        setSuperProfiles(data || []);
+        // const { data, error } = await supabase.from('profiles').select('*');
+        // if (error) throw error;
+        // setSuperProfiles(data || []);
       } else {
         // Mock data when Supabase is disabled
         setSuperProfiles([]);

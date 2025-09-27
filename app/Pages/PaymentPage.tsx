@@ -113,11 +113,12 @@ const PaymentPage = () => {
   const location = usePathname();
   const router = useRouter();
   const paymentDetails = {}; // TODO: Use Next.js search params or context for payment details
-  const [stripePromise, setStripePromise] = useState(null);
-  const [error, setError] = useState(null);
+  const [stripePromise, setStripePromise] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
-  const { paymentOptions } = useContext(ContentContext);
+  const context = useContext(ContentContext);
+  const paymentOptions = context?.paymentOptions || [];
 
   const selectedPaymentOption = paymentDetails || paymentOptions?.[0];
   const { 
@@ -147,7 +148,7 @@ const PaymentPage = () => {
       }
       try {
         const stripe = await loadStripe(key);
-        setStripePromise(Promise.resolve(stripe));
+        setStripePromise(loadStripe(key));
       } catch (err) {
         console.error("Error loading Stripe:", err);
         setError("Failed to initialize Stripe. Please try again later.");

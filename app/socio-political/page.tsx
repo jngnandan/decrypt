@@ -45,15 +45,15 @@ export default function SocioPoliticalPage() {
               <ThemeIcon size="xl" variant="gradient" gradient={{ from: 'blue', to: 'cyan' }}>
                 <IconUsers size={20} />
               </ThemeIcon>
-              <Title 
-                order={1} 
+              <Text 
+                component="h1" 
                 size="h1" 
                 fw={800} 
                 variant="gradient"
                 gradient={{ from: 'blue', to: 'cyan' }}
               >
                 Socio-Political Discourse
-              </Title>
+              </Text>
             </Group>
             <Text size="lg" c="dimmed" maw={600}>
               Fostering meaningful dialogue, civic engagement, and community building through transparent communication platforms and participatory democracy.

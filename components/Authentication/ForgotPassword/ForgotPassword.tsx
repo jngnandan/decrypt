@@ -17,7 +17,7 @@ import {
 import { IconArrowLeft } from '@tabler/icons-react';
 import classes from './ForgotPassword.module.css';
 import Link from 'next/link';
-import { auth } from '../../../firebase.js';
+import { auth } from '../../../app/firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';
 
 export function ForgotPassword() {
@@ -25,7 +25,7 @@ export function ForgotPassword() {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setMessage('');
