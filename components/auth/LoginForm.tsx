@@ -47,79 +47,29 @@ export function LoginForm({ onSwitchToRegister, onForgotPassword }: LoginFormPro
         avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${email}`
       };
       
-      // Try multiple storage methods for browser compatibility
-      let storageSuccess = false;
+      // Simple authentication system that bypasses storage issues
+      console.log('Login: Processing successful authentication for:', user);
       
+      // Set a simple browser session flag
       try {
-        const userDataString = JSON.stringify(user);
-        
-        // Try localStorage first
-        if (typeof Storage !== 'undefined') {
-          localStorage.setItem('user', userDataString);
-          const storedData = localStorage.getItem('user');
-          if (storedData) {
-            console.log('Login: Stored in localStorage successfully');
-            storageSuccess = true;
-          }
-        }
-        
-        // If localStorage failed, try sessionStorage
-        if (!storageSuccess && typeof sessionStorage !== 'undefined') {
-          sessionStorage.setItem('user', userDataString);
-          const storedData = sessionStorage.getItem('user');
-          if (storedData) {
-            console.log('Login: Stored in sessionStorage successfully');
-            storageSuccess = true;
-          }
-        }
-        
-        // If both fail, use URL parameter method (fallback for restricted environments)
-        if (!storageSuccess) {
-          console.log('Login: Using URL parameter method as fallback');
-          const encodedUser = btoa(userDataString); // Base64 encode for URL safety
-          // Show success notification
-          notifications.show({
-            title: 'Login Successful!',
-            message: `Welcome ${user.name}!`,
-            color: 'green',
-          });
-          
-          // Redirect with user data in URL
-          setTimeout(() => {
-            window.location.href = `/dashboard?auth=${encodedUser}`;
-          }, 500);
-          return;
-        }
-        
-        // Show success notification for storage methods
-        notifications.show({
-          title: 'Login Successful!',
-          message: `Welcome ${user.name}!`,
-          color: 'green',
-        });
-        
-        // Redirect to dashboard
-        setTimeout(() => {
-          console.log('Redirecting to dashboard...');
-          window.location.href = '/dashboard';
-        }, 500);
-        
-      } catch (storageError) {
-        console.error('All storage methods failed:', storageError);
-        
-        // As final fallback, proceed without storage (demo mode)
-        notifications.show({
-          title: 'Login Successful!',
-          message: `Welcome ${user.name}! (Demo mode - session won't persist)`,
-          color: 'orange',
-        });
-        
-        // Encode user data and pass via URL
-        const encodedUser = btoa(JSON.stringify(user));
-        setTimeout(() => {
-          window.location.href = `/dashboard?auth=${encodedUser}`;
-        }, 500);
+        document.cookie = `user=${btoa(JSON.stringify(user))}; path=/; max-age=3600`;
+        console.log('Login: Set cookie authentication');
+      } catch (e) {
+        console.log('Login: Cookie method failed, using window property');
+        // Use window property as ultimate fallback
+        (window as any).__user = user;
       }
+      
+      // Show success notification
+      notifications.show({
+        title: 'Login Successful!',
+        message: `Welcome ${user.name}!`,
+        color: 'green',
+      });
+      
+      // Direct redirect to dashboard
+      console.log('Login: Redirecting to dashboard...');
+      window.location.href = '/dashboard';
       
     } catch (err) {
       console.error('Login error:', err);
