@@ -85,7 +85,7 @@ export default function ProfileSettings() {
 
   const AccountForm = () => (
     <Paper shadow="sm" p="md" withBorder>
-      <Text size="lg" weight={700} mb="md">Personal Information</Text>
+      <Text size="lg" fw={700} mb="md">Personal Information</Text>
       
       <Alert icon={<IconInfoCircle size="1rem" />} title="Tips" color="blue" mb="md">
         <Text size="sm">
@@ -103,7 +103,7 @@ export default function ProfileSettings() {
           width={80}
           height={80}
         />
-        <Button leftIcon={<IconUpload size={14} />} variant="outline">
+        <Button leftSection={<IconUpload size={14} />} variant="outline">
           Upload Photo
         </Button>
       </Group>
@@ -138,16 +138,16 @@ export default function ProfileSettings() {
 
   const BookingsContent = () => (
     <Container>
-      <Text size="xl" weight={700} mb="lg">Bookings</Text>
+      <Text size="xl" fw={700} mb="lg">Bookings</Text>
       <Text mb="md">
         The session timings are following your local timezone Europe/London{' '}
-        <Button variant="subtle" compact>Update</Button>
+        <Button variant="subtle" size="compact-xs">Update</Button>
       </Text>
       
       <Alert icon={<IconInfoCircle size="1rem" />} color="blue" mb="xl">
-        <Group position="apart">
+        <Group justify="space-between">
           <Text size="sm">Keep track of the quality of sessions as you go.</Text>
-          <Button variant="subtle" compact>View Quality</Button>
+          <Button variant="subtle" size="compact-xs">View Quality</Button>
         </Group>
       </Alert>
       
@@ -160,16 +160,16 @@ export default function ProfileSettings() {
 
         <Tabs.Panel value="history">
           <Paper withBorder p="md" mt="md">
-            <Group position="apart">
+            <Group justify="space-between">
               <div>
-                <Text weight={500}>Cancelled session with Nick Reev</Text>
-                <Group spacing="xs">
+                <Text fw={500}>Cancelled session with Nick Reev</Text>
+                <Group gap="xs">
                   <IconCalendar size={14} />
                   <Text size="sm">Mon, Jun 03</Text>
                   <Text size="sm">10:00 AM - 11:00 AM</Text>
                 </Group>
               </div>
-              <Button variant="subtle" rightIcon={<IconChevronRight size={14} />}>
+              <Button variant="subtle" rightSection={<IconChevronRight size={14} />}>
                 Details
               </Button>
             </Group>
@@ -182,7 +182,7 @@ export default function ProfileSettings() {
 
   const TimeZoneForm = () => (
     <Paper shadow="sm" p="md" withBorder className="mt-4">
-      <Text size="lg" weight={700} mb="md">Time zone & availability</Text>
+      <Text size="lg" fw={700} mb="md">Time zone & availability</Text>
       <Text size="sm" mb="md">If you'd like to meet your mentors via video calls, let them know when you're usually available!</Text>
       
       <Select
@@ -193,7 +193,7 @@ export default function ProfileSettings() {
         rightSection={<IconChevronDown size={14} />}
       />
       
-      <Text size="sm" weight={500} mb="xs">In general, when do you prefer to meet your mentor?</Text>
+      <Text size="sm" fw={500} mb="xs">In general, when do you prefer to meet your mentor?</Text>
       <Radio.Group>
         <Radio label="Early mornings (before 9am)" value="early" className="mb-2" />
         <Radio label="During the day (between 9am and 5pm)" value="day" className="mb-2" />
@@ -208,7 +208,7 @@ export default function ProfileSettings() {
 
   const EmailPreferences = () => (
     <Paper shadow="sm" p="md" withBorder className="mt-4">
-      <Text size="lg" weight={700} mb="md">Email preferences</Text>
+      <Text size="lg" fw={700} mb="md">Email preferences</Text>
       <Text size="sm" mb="md">Configure your email notifications so you can focus on what's really important.</Text>
       
       <Checkbox label="Important updates about your account, mentorship, messages and billing" className="mb-2" />
@@ -221,7 +221,7 @@ export default function ProfileSettings() {
 
   const CloseAccount = () => (
     <Paper shadow="sm" p="md" withBorder className="mt-4">
-      <Text size="lg" weight={700} mb="md">Close your account</Text>
+      <Text size="lg" fw={700} mb="md">Close your account</Text>
       <Text size="sm" mb="md">Once you delete your account, there's no going back. Please be certain!</Text>
       
       <Button color="red">Delete account</Button>
@@ -272,7 +272,7 @@ export default function ProfileSettings() {
           {loading ? (
             <Skeleton height={200} />
           ) : (
-            <Text size="xl" weight={700} my="lg">Balance</Text>
+            <Text size="xl" fw={700} my="lg">Balance</Text>
             // Add balance content here
           )}
         </Tabs.Panel>
@@ -282,7 +282,7 @@ export default function ProfileSettings() {
             <Skeleton height={200} />
           ) : (
             <>
-              <Text size="xl" weight={700} my="lg">Password</Text>
+              <Text size="xl" fw={700} my="lg">Password</Text>
               {/* Add password change content here */}
             </>
           )}

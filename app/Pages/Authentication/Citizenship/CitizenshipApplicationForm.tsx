@@ -73,7 +73,7 @@ export default function CitizenshipApplicationForm() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -91,14 +91,14 @@ export default function CitizenshipApplicationForm() {
     }
   };
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: string, value: any) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
   };
 
-  const handleDateChange = (field, value) => {
+  const handleDateChange = (field: string, value: string) => {
     setFormData(prev => ({
       ...prev,
       dateOfBirth: {
@@ -289,7 +289,7 @@ export default function CitizenshipApplicationForm() {
                       leftSectionPointerEvents="none"
                       data={dayOptions}
                       value={formData.dateOfBirth.day}
-                      onChange={(value) => handleDateChange('day', value)}
+                      onChange={(value) => handleDateChange('day', value || '')}
                     />
                     <Select
                       label="Date of birth - Month"
@@ -299,7 +299,7 @@ export default function CitizenshipApplicationForm() {
                       leftSectionPointerEvents="none"
                       data={monthOptions}
                       value={formData.dateOfBirth.month}
-                      onChange={(value) => handleDateChange('month', value)}
+                      onChange={(value) => handleDateChange('month', value || '')}
                     />
                     <Select
                       label="Date of birth - Year"
@@ -309,7 +309,7 @@ export default function CitizenshipApplicationForm() {
                       leftSectionPointerEvents="none"
                       data={yearOptions}
                       value={formData.dateOfBirth.year}
-                      onChange={(value) => handleDateChange('year', value)}
+                      onChange={(value) => handleDateChange('year', value || '')}
                     />
                   </Group>
 
