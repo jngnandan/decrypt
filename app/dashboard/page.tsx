@@ -79,15 +79,42 @@ export default function DashboardPage() {
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
-    // Check authentication status
+    // Check authentication status from multiple sources
     const checkAuth = () => {
       try {
-        const userData = localStorage.getItem('user');
-        console.log('Dashboard: Checking auth, userData:', userData);
+        // First, check URL parameters for auth data (fallback method)
+        const urlParams = new URLSearchParams(window.location.search);
+        const authParam = urlParams.get('auth');
+        
+        if (authParam) {
+          try {
+            const userData = JSON.parse(atob(authParam)); // Decode base64
+            console.log('Dashboard: Found user in URL params:', userData);
+            setUser(userData);
+            setIsAuthenticated(true);
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+            return;
+          } catch (urlError) {
+            console.log('Dashboard: URL auth param invalid');
+          }
+        }
+        
+        // Check localStorage
+        let userData = null;
+        if (typeof Storage !== 'undefined') {
+          userData = localStorage.getItem('user');
+        }
+        
+        // If localStorage doesn't work, try sessionStorage
+        if (!userData && typeof sessionStorage !== 'undefined') {
+          userData = sessionStorage.getItem('user');
+          console.log('Dashboard: Checking sessionStorage, userData:', userData);
+        }
         
         if (userData && userData !== 'null') {
           const parsedUser = JSON.parse(userData);
-          console.log('Dashboard: User found:', parsedUser);
+          console.log('Dashboard: User found in storage:', parsedUser);
           setUser(parsedUser);
           setIsAuthenticated(true);
         } else {
@@ -100,17 +127,8 @@ export default function DashboardPage() {
       }
     };
 
-    // Check auth immediately and also after a delay to be sure
+    // Check auth immediately
     checkAuth();
-    
-    // Also check after a brief delay to catch any timing issues
-    setTimeout(() => {
-      const userData = localStorage.getItem('user');
-      if (userData && !user) {
-        console.log('Dashboard: Second check found user data, re-running auth check');
-        checkAuth();
-      }
-    }, 200);
   }, []);
 
   // Redirect to login if not authenticated
