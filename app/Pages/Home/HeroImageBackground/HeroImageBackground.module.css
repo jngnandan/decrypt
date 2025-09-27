@@ -9,6 +9,7 @@
   min-height: 100svh;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 /* Large desktop styles */
@@ -54,6 +55,10 @@
 .inner {
   position: relative;
   z-index: 1;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .title {
