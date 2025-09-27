@@ -49,8 +49,10 @@ export function LoginForm({ onSwitchToRegister, onForgotPassword }: LoginFormPro
       
       // Store in localStorage securely
       try {
-        localStorage.setItem('user', JSON.stringify(user));
-        console.log('User stored securely');
+        const userDataString = JSON.stringify(user);
+        localStorage.setItem('user', userDataString);
+        console.log('Login: User stored:', user);
+        console.log('Login: Stored data:', localStorage.getItem('user'));
       } catch (storageError) {
         console.warn('Storage not available, continuing without persistence');
       }

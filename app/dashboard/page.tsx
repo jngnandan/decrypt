@@ -83,24 +83,36 @@ export default function DashboardPage() {
     const checkAuth = () => {
       try {
         const userData = localStorage.getItem('user');
-        if (userData) {
-          setUser(JSON.parse(userData));
+        console.log('Dashboard: Checking auth, userData:', userData);
+        
+        if (userData && userData !== 'null') {
+          const parsedUser = JSON.parse(userData);
+          console.log('Dashboard: User found:', parsedUser);
+          setUser(parsedUser);
           setIsAuthenticated(true);
         } else {
+          console.log('Dashboard: No user found, redirecting to login');
           setIsAuthenticated(false);
         }
       } catch (error) {
+        console.log('Dashboard: Auth check error:', error);
         setIsAuthenticated(false);
       }
     };
 
-    checkAuth();
+    // Add a small delay to ensure localStorage is available
+    setTimeout(() => {
+      checkAuth();
+    }, 100);
   }, []);
 
   // Redirect to login if not authenticated
   useEffect(() => {
     if (isAuthenticated === false) {
-      router.push('/login');
+      console.log('Dashboard: Redirecting to login...');
+      setTimeout(() => {
+        router.push('/login');
+      }, 500);
     }
   }, [isAuthenticated, router]);
 
