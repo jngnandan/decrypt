@@ -5,6 +5,7 @@ import { HeroImageBackground } from "./HeroImageBackground/HeroImageBackground";
 import { FeaturesTitle } from "./FeaturesTitle/FeaturesTitle";
 import { FeaturesGrid } from "./FeaturesGrid/FeaturesGrid";
 import { StatsGrid } from "./StatsGrid/StatsGrid";
+import { ImageCards } from "./ImageCards/ImageCards";
 import { ArticlesCardsGrid } from "./ArticlesCardsGrid/ArticlesCardsGrid";
 import NewsletterSignup from "./NewsLetter/NewsletterSignup";
 
@@ -51,6 +52,9 @@ function HomePage() {
 
       {/* Features Section */}
       <FeaturesTitle />
+
+      {/* Image Cards Section */}
+      <ImageCards />
 
       {/* Articles Section */}
       <ArticlesCardsGrid />
