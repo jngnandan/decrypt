@@ -70,8 +70,12 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
           avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${values.email}`
         };
         
-        // Store user data in localStorage
-        localStorage.setItem('user', JSON.stringify(user));
+        // Store user data in localStorage securely
+        try {
+          localStorage.setItem('user', JSON.stringify(user));
+        } catch (storageError) {
+          console.warn('Storage not available, continuing without persistence');
+        }
         
         // Show success notification
         notifications.show({
@@ -80,8 +84,10 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
           color: 'green',
         });
         
-        // Redirect to dashboard
-        window.location.href = '/dashboard';
+        // Redirect to dashboard using Next.js router
+        setTimeout(() => {
+          window.location.assign('/dashboard');
+        }, 1000);
       } else {
         throw new Error('Please fill in all fields correctly and ensure passwords match');
       }

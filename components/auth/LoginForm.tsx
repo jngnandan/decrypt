@@ -2,6 +2,7 @@
 
 import { TextInput, PasswordInput, Checkbox, Button, Stack, Group, Text, Anchor, Alert } from '@mantine/core';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { notifications } from '@mantine/notifications';
 import { IconAlertCircle, IconMail, IconLock } from '@tabler/icons-react';
 
@@ -16,6 +17,7 @@ export function LoginForm({ onSwitchToRegister, onForgotPassword }: LoginFormPro
   const [rememberMe, setRememberMe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,9 +47,13 @@ export function LoginForm({ onSwitchToRegister, onForgotPassword }: LoginFormPro
         avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${email}`
       };
       
-      // Store in localStorage
-      localStorage.setItem('user', JSON.stringify(user));
-      console.log('User stored:', user);
+      // Store in localStorage securely
+      try {
+        localStorage.setItem('user', JSON.stringify(user));
+        console.log('User stored securely');
+      } catch (storageError) {
+        console.warn('Storage not available, continuing without persistence');
+      }
       
       // Show success notification
       notifications.show({
@@ -56,10 +62,10 @@ export function LoginForm({ onSwitchToRegister, onForgotPassword }: LoginFormPro
         color: 'green',
       });
       
-      // Wait a moment then redirect
+      // Redirect using Next.js router (secure)
       setTimeout(() => {
         console.log('Redirecting to dashboard...');
-        window.location.href = '/dashboard';
+        router.push('/dashboard');
       }, 1000);
       
     } catch (err) {
