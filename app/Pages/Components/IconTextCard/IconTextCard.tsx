@@ -1,7 +1,13 @@
 import { UnstyledButton, Text, Card } from '@mantine/core';
 import { IconPalette } from '@tabler/icons-react'; // Import Tabler icons
 
-export function IconTextCard({ icon: Icon, title, description }) {
+interface IconTextCardProps {
+  icon: React.ComponentType<any>;
+  title: string;
+  description: string;
+}
+
+export function IconTextCard({ icon: Icon, title, description }: IconTextCardProps) {
   return (
     <Card withBorder className="flex w-full max-w-xs mx-auto border rounded-md">
       <Icon size={24} className="mr-4" />

@@ -2,10 +2,14 @@ import React, { useState, useEffect} from 'react';
 import { Card, Image, Text, Group, Badge, Center, ActionIcon, rem } from '@mantine/core';
 import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler/icons-react';
 import classes from './FeaturesCard.module.css';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 
-export default function CompareCard(props) {
+interface CompareCardProps {
+  [key: string]: any;
+}
+
+export default function CompareCard(props: CompareCardProps) {
   const { data, data2 } = props;
   const { id: id1, img: img1, url: url1, name: name1, description: description1, deal: deal1 } = data;
 
@@ -24,7 +28,7 @@ export default function CompareCard(props) {
 
   useEffect(() => {
     // Assuming data2 is an array
-    data2.forEach((item, index) => {
+    data2.forEach((item: any, index: number) => {
       const { id, img, url, name, description, deal } = item;
       setId2(id);
       setImg2(img);
@@ -62,7 +66,7 @@ export default function CompareCard(props) {
   const cardClassName = `${classes.card} ${isClicked ? classes.clicked : ''}`;
 
   return (
-    <Link to={`/products/${id1}`}>
+    <Link href={`/products/${id1}`}>
 
 <Card withBorder  style={{ display: 'flex', flexDirection: 'row', alignContent: 'center', alignItems: 'center', }} onClick={handleCardClick}>
 

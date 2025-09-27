@@ -12,7 +12,7 @@ export function HeroText() {
       <Dots className="absolute right-0 top-160 text-blue-200 opacity-50" /> */}
       
       <Container className="relative z-10 max-w-7xl mx-auto px-4">
-        <Tabs value={activeTab} onChange={setActiveTab} className="mb-8 flex justify-center max-w-[165px] mx-auto">
+        <Tabs value={activeTab} onChange={(value) => setActiveTab(value || '')} className="mb-8 flex justify-center max-w-[165px] mx-auto">
           <Tabs.List>
             <Tabs.Tab value="mentee" className="px-4 py-2 text-lg font-medium">Mentee</Tabs.Tab>
             <Tabs.Tab value="mentor" className="px-4 py-2 text-lg font-medium">Mentor</Tabs.Tab>

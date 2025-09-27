@@ -21,8 +21,8 @@ import { useRouter } from "next/navigation";
 // import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'; // Temporarily disabled
 // import { initializeApp, getApps } from 'firebase/app'; // Temporarily disabled
 import { IconMail, IconLock,  } from '@tabler/icons-react';
-import GoogleButton from './GoogleButton.tsx';
-import TwitterButton from './TwitterButton.tsx';
+import GoogleButton from './GoogleButton';
+import TwitterButton from './TwitterButton';
 import classes from './AuthenticationTitle.module.css';
 
 // Firebase configuration - temporarily disabled
@@ -49,7 +49,7 @@ export default function AuthenticationForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [initialLoading, setInitialLoading] = useState(true);
-  const navigate = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     // Simulate initial loading
@@ -59,7 +59,7 @@ export default function AuthenticationForm() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -81,12 +81,12 @@ export default function AuthenticationForm() {
         setPassword('');
         setError('');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error('Error during login:', err);
-      if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') {
+      if (err?.code === 'auth/user-not-found' || err?.code === 'auth/wrong-password') {
         setError('Account does not exist. Please sign up.');
       } else {
-        setError(err.message || 'Failed to sign in. Please try again.');
+        setError(err?.message || 'Failed to sign in. Please try again.');
       }
     } finally {
       setLoading(false);

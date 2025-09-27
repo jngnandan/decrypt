@@ -20,10 +20,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { IconUser, IconMail, IconLock } from '@tabler/icons-react';
-import GoogleButton from './GoogleButton.tsx';
-import TwitterButton from './TwitterButton.tsx';
+import GoogleButton from './GoogleButton';
+import TwitterButton from './TwitterButton';
 import classes from './AuthenticationTitle.module.css';
-import { useContent } from '../../../context/ContentContext.tsx'; // Adjust the import path as needed
+import { useContent } from '../../../context/ContentContext'; // Adjust the import path as needed
 
 const auth = getAuth();
 
@@ -45,7 +45,7 @@ export default function SignupForm() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSignup = async (e) => {
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     setLoading(true);

@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Image, Text, Group, Badge, Center, Anchor, ActionIcon, rem,  Breadcrumbs } from '@mantine/core';
 import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler/icons-react';
 import classes from './FeaturesCard.module.css';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 const mockdata = [
   { label: '4 passengers', icon: IconUsers },
@@ -11,7 +11,11 @@ const mockdata = [
   { label: 'Electric', icon: IconGasStation },
 ];
 
-export default function ProductCard(props) {
+interface ProductCardProps {
+  [key: string]: any;
+}
+
+export default function ProductCard(props: ProductCardProps) {
   const { data } = props;
   const { id, img, url, name, description, deal } = data; // Destructure `deal` directly
 
@@ -29,7 +33,7 @@ export default function ProductCard(props) {
   return (
     <div>
     <Card withBorder className={classes.card}>
-      <Link to={`/products/${id}`}>
+      <Link href={`/products/${id}`}>
         <Card.Section className={classes.imageSection}>
           <img className='h-50' style={{ height: '180px', objectFit: 'contain' }} src={img} alt={name} />
         </Card.Section>

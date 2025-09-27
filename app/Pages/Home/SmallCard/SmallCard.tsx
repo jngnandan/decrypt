@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { Card, Image, Text, Group, Badge, Center, ActionIcon, rem } from '@mantine/core';
 import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler/icons-react';
 import classes from './FeaturesCard.module.css';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 
-export default function SmallCard(props) {
+interface SmallCardProps {
+  [key: string]: any;
+}
+
+export default function SmallCard(props: SmallCardProps) {
   const { data } = props;
   const { id, img, url, name, description, deal } = data; // Destructure `deal` directly
 
@@ -26,7 +30,7 @@ export default function SmallCard(props) {
   const cardClassName = `${classes.card} ${isClicked ? classes.clicked : ''}`;
 
   return (
-    <Link to={`/products/${id}`}>
+    <Link href={`/products/${id}`}>
 
 <Card withBorder  style={{ display: 'flex', flexDirection: 'row', alignContent: 'center', alignItems: 'center', }} onClick={handleCardClick}>
 

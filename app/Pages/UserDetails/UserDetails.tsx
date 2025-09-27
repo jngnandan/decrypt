@@ -3,10 +3,10 @@
 import React, { useState, useContext } from 'react';
 import { Card, Text, Button, Stack, Box, Select, TextInput, Checkbox, Container, Title, Breadcrumbs, Anchor } from '@mantine/core';
 // import { DatePicker } from '@mantine/dates'; // Removed - dates package uninstalled
-import { ContentContext } from '../../context/ContentContext.tsx';
+import { ContentContext } from '../../context/ContentContext';
 import { useRouter } from "next/navigation";
 import { IconChevronRight } from '@tabler/icons-react';
-import { TableOfContents } from './TableOfContents.tsx'; // Adjust the import path as needed
+import { TableOfContents } from './TableOfContents'; // Adjust the import path as needed
 
 function UserDetails() {
   const router = useRouter();
