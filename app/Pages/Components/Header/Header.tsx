@@ -139,6 +139,9 @@ export function HeaderMegaMenu() {
             <Link href="/mentors" className={classes.link}>
               Mentors
             </Link>
+            <Link href="/knowledge" className={classes.link}>
+              Knowledge
+            </Link>
             <Link href="/about" className={classes.link}>
               About
             </Link>
@@ -184,6 +187,9 @@ export function HeaderMegaMenu() {
           <Collapse in={linksOpened}>{links}</Collapse>
           <Link href="/mentors" className={classes.link}>
             Mentors
+          </Link>
+          <Link href="/knowledge" className={classes.link}>
+            Knowledge
           </Link>
           <Link href="/about" className={classes.link}>
             About
