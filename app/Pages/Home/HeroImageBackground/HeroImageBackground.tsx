@@ -20,9 +20,9 @@ export function HeroImageBackground() {
               lineHeight: 1.2
             }}
           >
-            Transparent governance at{' '}
+            Find your perfect{' '}
             <Text component="span" inherit style={{ color: '#00aff0' }}>
-              low cost
+              mentor
             </Text>
           </Title>
 
@@ -36,8 +36,8 @@ export function HeroImageBackground() {
               lineHeight: 1.5
             }}
           >
-            Join our decentralized community. Participate in governance, access services, 
-            and build a sustainable future together.
+            Connect with experienced professionals who will guide you through your career journey 
+            and help you achieve your goals.
           </Text>
         </div>
 
@@ -66,7 +66,7 @@ export function HeroImageBackground() {
                   fontWeight: 600
                 }}
               >
-                Find services
+                Find mentors
               </Button>
               <Button
                 variant="subtle"
@@ -80,14 +80,14 @@ export function HeroImageBackground() {
                   fontWeight: 600
                 }}
               >
-                Offer services
+                Become a mentor
               </Button>
             </Group>
 
             <div style={{ borderTop: '1px solid #e9ecef', paddingTop: '24px' }}>
               <Group gap="md" align="end">
                 <TextInput
-                  placeholder="What service do you need?"
+                  placeholder="What skills do you want to develop?"
                   size="lg"
                   style={{ flex: 1 }}
                   styles={{
@@ -100,9 +100,9 @@ export function HeroImageBackground() {
                   }}
                 />
                 <Select
-                  placeholder="Category"
+                  placeholder="Industry"
                   size="lg"
-                  data={['Governance', 'Treasury', 'Education', 'Healthcare', 'Environment']}
+                  data={['Technology', 'Business', 'Design', 'Marketing', 'Finance']}
                   style={{ minWidth: '160px' }}
                   styles={{
                     input: {
@@ -137,7 +137,7 @@ export function HeroImageBackground() {
             variant="outline" 
             size="lg" 
             component={Link} 
-            href="/citizenship"
+            href="/mentors"
             style={{
               borderColor: '#00aff0',
               color: '#00aff0',
@@ -147,7 +147,7 @@ export function HeroImageBackground() {
               fontWeight: 600
             }}
           >
-            Get Citizenship
+            Browse Mentors
           </Button>
           <Button 
             variant="subtle" 
@@ -158,7 +158,7 @@ export function HeroImageBackground() {
               fontWeight: 600
             }}
           >
-            Learn More
+            How it works
           </Button>
         </Group>
       </Container>

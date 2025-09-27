@@ -3,52 +3,52 @@
 import { IconUsers, IconShield, IconBuildingBank, IconSchool, IconPlant, IconChecklist } from '@tabler/icons-react';
 import { Container, SimpleGrid, Text, Title, Card, Group, ThemeIcon, Button, Box } from '@mantine/core';
 
-const SERVICES = [
+const FEATURES = [
   {
-    icon: IconChecklist,
-    title: 'Governance',
-    description: 'Participate in community decisions through transparent voting mechanisms',
+    icon: IconUsers,
+    title: 'Expert Mentors',
+    description: 'Connect with industry professionals who have years of experience and proven track records',
     color: '#00aff0',
-    href: '/governance'
-  },
-  {
-    icon: IconBuildingBank,
-    title: 'Treasury',
-    description: 'Transparent financial management with real-time tracking and accountability',
-    color: '#ff6b35',
-    href: '/treasury'
+    href: '/mentors'
   },
   {
     icon: IconSchool,
-    title: 'Education',
-    description: 'Access online courses, workshops, and skill development programs',
+    title: 'Personalized Learning',
+    description: 'Get customized guidance tailored to your specific goals and learning style',
+    color: '#ff6b35',
+    href: '/learning'
+  },
+  {
+    icon: IconChecklist,
+    title: 'Goal Tracking',
+    description: 'Set clear objectives and track your progress with built-in milestone tracking',
     color: '#7c4dff',
-    href: '/education'
+    href: '/goals'
   },
   {
-    icon: IconUsers,
-    title: 'Community',
-    description: 'Connect with like-minded citizens and build meaningful relationships',
+    icon: IconBuildingBank,
+    title: 'Career Advancement',
+    description: 'Accelerate your professional growth with strategic career development advice',
     color: '#00c851',
-    href: '/community'
-  },
-  {
-    icon: IconPlant,
-    title: 'Environment',
-    description: 'Contribute to sustainability initiatives and track environmental impact',
-    color: '#2bbbad',
-    href: '/environment'
+    href: '/career'
   },
   {
     icon: IconShield,
-    title: 'Security',
-    description: 'Blockchain-secured platform ensuring data integrity and privacy',
+    title: 'Safe Environment',
+    description: 'Verified mentors and secure platform ensuring a trusted mentorship experience',
+    color: '#2bbbad',
+    href: '/safety'
+  },
+  {
+    icon: IconPlant,
+    title: 'Long-term Growth',
+    description: 'Build lasting professional relationships and continuous skill development',
     color: '#ff5722',
-    href: '/security'
+    href: '/growth'
   },
 ];
 
-interface ServiceCardProps {
+interface FeatureCardProps {
   icon: React.FC<any>;
   title: string;
   description: string;
@@ -56,7 +56,7 @@ interface ServiceCardProps {
   href: string;
 }
 
-export function ServiceCard({ icon: Icon, title, description, color, href }: ServiceCardProps) {
+export function FeatureCard({ icon: Icon, title, description, color, href }: FeatureCardProps) {
   return (
     <Card
       shadow="sm"
@@ -130,7 +130,7 @@ export function FeaturesGrid() {
               marginBottom: '16px'
             }}
           >
-            How are you participating today?
+            Why choose our mentorship platform?
           </Title>
           <Text 
             size="lg" 
@@ -142,8 +142,8 @@ export function FeaturesGrid() {
               lineHeight: 1.6
             }}
           >
-            Explore our community services and find the perfect way to contribute to 
-            our shared vision of transparent governance and sustainable living.
+            Discover the features that make our platform the best choice for your 
+            professional development and career growth journey.
           </Text>
         </div>
 
@@ -152,8 +152,8 @@ export function FeaturesGrid() {
           spacing="xl"
           verticalSpacing="xl"
         >
-          {SERVICES.map((service, index) => (
-            <ServiceCard key={index} {...service} />
+          {FEATURES.map((feature, index) => (
+            <FeatureCard key={index} {...feature} />
           ))}
         </SimpleGrid>
 
@@ -162,26 +162,26 @@ export function FeaturesGrid() {
           <Group justify="center" gap="xl">
             <div style={{ textAlign: 'center' }}>
               <Text fw={700} size="xl" style={{ color: '#1c1c1c', marginBottom: '8px' }}>
-                Transparent
+                1000+
               </Text>
               <Text size="sm" style={{ color: '#666' }}>
-                Every decision is recorded on blockchain for complete transparency
+                Expert mentors from top companies
               </Text>
             </div>
             <div style={{ textAlign: 'center' }}>
               <Text fw={700} size="xl" style={{ color: '#1c1c1c', marginBottom: '8px' }}>
-                Secure
+                50k+
               </Text>
               <Text size="sm" style={{ color: '#666' }}>
-                Advanced cryptography protects your identity and contributions
+                Successful mentorship sessions completed
               </Text>
             </div>
             <div style={{ textAlign: 'center' }}>
               <Text fw={700} size="xl" style={{ color: '#1c1c1c', marginBottom: '8px' }}>
-                Community-driven
+                95%
               </Text>
               <Text size="sm" style={{ color: '#666' }}>
-                Citizens shape the future through collective decision-making
+                Of mentees achieve their career goals
               </Text>
             </div>
           </Group>

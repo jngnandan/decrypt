@@ -15,14 +15,14 @@ export function FeaturesTitle() {
                 <IconShield size={32} style={{ color: '#ff6b35' }} stroke={1.8} />
               </ThemeIcon>
               <Title order={2} style={{ fontSize: '32px', fontWeight: 700, color: '#1c1c1c' }}>
-                Help us keep you safe from fraud
+                Your success is our priority
               </Title>
             </div>
             
             <Text size="lg" style={{ color: '#666', lineHeight: 1.6, marginBottom: '24px' }}>
-              At Decrypt, we're working hard to make our platform as secure as it can be. 
-              But when fraud does happen, we want you to know exactly how to avoid and report it. 
-              Follow our tips to help us keep you safe.
+              At Protocon, we're committed to creating meaningful mentorship connections that drive real results. 
+              Our platform ensures quality matches, verified mentors, and a secure environment for professional growth. 
+              Your journey to success starts with the right guidance.
             </Text>
             
             <Button 
@@ -36,7 +36,7 @@ export function FeaturesTitle() {
                 border: 'none'
               }}
             >
-              Learn more
+              Get started
             </Button>
           </div>
           
@@ -52,55 +52,55 @@ export function FeaturesTitle() {
               margin: '0 auto',
               border: '3px solid #00aff0'
             }}>
-              <IconEye size={80} style={{ color: '#00aff0' }} stroke={1.5} />
+              <IconUsers size={80} style={{ color: '#00aff0' }} stroke={1.5} />
             </div>
           </div>
         </div>
 
-        {/* Popular Actions Section */}
+        {/* Popular Mentorship Areas */}
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
           <Title order={2} style={{ fontSize: '36px', fontWeight: 700, color: '#1c1c1c', marginBottom: '16px' }}>
-            Where do you want to participate?
+            What would you like to work on?
           </Title>
           <Text size="lg" style={{ color: '#666', maxWidth: '600px', margin: '0 auto' }}>
-            Explore our most popular community activities and governance opportunities
+            Explore our most popular mentorship areas and find the perfect match for your development goals
           </Text>
         </div>
 
         <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg" style={{ marginBottom: '60px' }}>
           <Card radius="lg" style={{ border: '1px solid #e9ecef', textAlign: 'center', padding: '32px' }}>
             <Text fw={600} size="lg" style={{ color: '#1c1c1c', marginBottom: '8px' }}>
-              Governance → Treasury
+              Career Development
             </Text>
             <Text size="sm" style={{ color: '#666', marginBottom: '16px' }}>
-              Participate in budget allocation votes
+              Strategic career planning and advancement
             </Text>
             <Text fw={600} style={{ color: '#00aff0', fontSize: '18px' }}>
-              Active proposals: 12
+              500+ mentors available
             </Text>
           </Card>
 
           <Card radius="lg" style={{ border: '1px solid #e9ecef', textAlign: 'center', padding: '32px' }}>
             <Text fw={600} size="lg" style={{ color: '#1c1c1c', marginBottom: '8px' }}>
-              Community → Education
+              Leadership Skills
             </Text>
             <Text size="sm" style={{ color: '#666', marginBottom: '16px' }}>
-              Join learning circles and workshops
+              Develop executive presence and team management
             </Text>
             <Text fw={600} style={{ color: '#00aff0', fontSize: '18px' }}>
-              Next session: Tomorrow
+              350+ mentors available
             </Text>
           </Card>
 
           <Card radius="lg" style={{ border: '1px solid #e9ecef', textAlign: 'center', padding: '32px' }}>
             <Text fw={600} size="lg" style={{ color: '#1c1c1c', marginBottom: '8px' }}>
-              Environment → Action
+              Technical Skills
             </Text>
             <Text size="sm" style={{ color: '#666', marginBottom: '16px' }}>
-              Contribute to sustainability projects
+              Programming, design, and technical expertise
             </Text>
             <Text fw={600} style={{ color: '#00aff0', fontSize: '18px' }}>
-              Impact: 2.4k tons CO₂
+              800+ mentors available
             </Text>
           </Card>
         </SimpleGrid>
@@ -108,10 +108,10 @@ export function FeaturesTitle() {
         {/* Call to Action */}
         <div style={{ textAlign: 'center', backgroundColor: '#f8f9fa', borderRadius: '16px', padding: '60px 40px' }}>
           <Title order={2} style={{ fontSize: '28px', fontWeight: 700, color: '#1c1c1c', marginBottom: '16px' }}>
-            Ready to shape the future?
+            Ready to accelerate your growth?
           </Title>
           <Text size="lg" style={{ color: '#666', marginBottom: '32px', maxWidth: '500px', margin: '0 auto 32px' }}>
-            Join thousands of citizens building a transparent, sustainable, and democratic digital society.
+            Join thousands of professionals who have transformed their careers through meaningful mentorship connections.
           </Text>
           <Group justify="center" gap="lg">
             <Button 
@@ -125,7 +125,7 @@ export function FeaturesTitle() {
                 border: 'none'
               }}
             >
-              Get Citizenship
+              Find a mentor
             </Button>
             <Button 
               variant="outline"
@@ -139,7 +139,7 @@ export function FeaturesTitle() {
                 fontWeight: 600
               }}
             >
-              Explore Community
+              Become a mentor
             </Button>
           </Group>
         </div>
