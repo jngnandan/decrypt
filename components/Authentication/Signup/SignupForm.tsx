@@ -23,7 +23,7 @@ import { IconUser, IconMail, IconLock } from '@tabler/icons-react';
 import GoogleButton from './GoogleButton';
 import TwitterButton from './TwitterButton';
 import classes from './AuthenticationTitle.module.css';
-import { useContent } from '../../../context/ContentContext'; // Adjust the import path as needed
+import { useContent } from '../../../app/context/ContentContext'; // Adjust the import path as needed
 
 const auth = getAuth();
 
@@ -47,7 +47,7 @@ export default function SignupForm() {
 
   const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError(null);
+    setError('');
     setLoading(true);
   
     try {
@@ -67,11 +67,11 @@ export default function SignupForm() {
       setError('Verification email sent! Please check your inbox to confirm your account.');
   
       router.push('/');
-    } catch (error) {
-      if (error.code === 'auth/email-already-in-use') {
+    } catch (error: any) {
+      if (error?.code === 'auth/email-already-in-use') {
         setError('This email is already registered. Please try logging in.');
       } else {
-        setError(error.message || 'An error occurred during signup. Please try again.');
+        setError(error?.message || 'An error occurred during signup. Please try again.');
       }
     } finally {
       setLoading(false);
@@ -107,7 +107,7 @@ export default function SignupForm() {
         </Title>
         <Text c="dimmed" size="sm" ta="center" mt={5}>
           Already have an account?{' '}
-          <Link to="/login">
+          <Link href="/login">
             <Anchor size="sm" component="button">
               Login
             </Anchor>
