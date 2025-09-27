@@ -79,25 +79,27 @@ export function StatsGrid() {
   });
 
   return (
-    <Container size="lg" py={80}>
-      <Group justify="center" mb={50}>
-        <div style={{ textAlign: 'center', maxWidth: 600 }}>
-          <Text fw={600} fz="h2" mb="md" style={{ color: '#1a1a1a' }}>
-            Building the Future of Governance
-          </Text>
-          <Text size="lg" c="dimmed" style={{ lineHeight: 1.6 }}>
-            Real-time metrics from our blockchain-based network state, showcasing transparent
-            resource allocation and community-driven sustainable development.
-          </Text>
-        </div>
-      </Group>
-      
-      <SimpleGrid
-        cols={{ base: 1, xs: 2, md: 4 }}
-        spacing={{ base: 'md', md: 'lg' }}
-      >
-        {stats}
-      </SimpleGrid>
-    </Container>
+    <div style={{ backgroundColor: '#00aff0', paddingTop: '80px', paddingBottom: '80px' }}>
+      <Container size="lg">
+        <Group justify="center" mb={50}>
+          <div style={{ textAlign: 'center', maxWidth: 600 }}>
+            <Text fw={600} fz="h2" mb="md" style={{ color: 'white' }}>
+              Building the Future of Governance
+            </Text>
+            <Text size="lg" style={{ lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.9)' }}>
+              Real-time metrics from our blockchain-based network state, showcasing transparent
+              resource allocation and community-driven sustainable development.
+            </Text>
+          </div>
+        </Group>
+        
+        <SimpleGrid
+          cols={{ base: 1, xs: 2, md: 4 }}
+          spacing={{ base: 'md', md: 'lg' }}
+        >
+          {stats}
+        </SimpleGrid>
+      </Container>
+    </div>
   );
 }
