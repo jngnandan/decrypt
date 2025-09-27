@@ -7,11 +7,11 @@ export default function Article({ params }: { params: { slug: string } }) {
 export async function generateStaticParams() {
   // Generate static params for all articles
   return [
-    { slug: 'building-sustainable-communities' },
-    { slug: 'future-decentralized-governance' },
-    { slug: 'environmental-blockchain-impact' },
-    { slug: 'digital-identity-network-states' },
-    { slug: 'treasury-management-daos' },
-    { slug: 'community-building-virtual-spaces' }
+    { slug: 'building-sustainable-communities-through-technology' },
+    { slug: 'the-future-of-decentralized-governance' },
+    { slug: 'environmental-impact-of-blockchain-networks' },
+    { slug: 'digital-identity-in-network-states' },
+    { slug: 'treasury-management-in-daos' },
+    { slug: 'community-building-in-virtual-spaces' }
   ];
 }

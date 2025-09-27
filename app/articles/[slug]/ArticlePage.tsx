@@ -5,7 +5,7 @@ import { IconClock, IconEye, IconHeart } from '@tabler/icons-react';
 import TableOfContents from './TableOfContents';
 
 const articleData = {
-  'building-sustainable-communities': {
+  'building-sustainable-communities-through-technology': {
     title: 'Building Sustainable Communities Through Technology',
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80',
     description: 'Discover how blockchain technology and decentralized governance are creating new opportunities for sustainable resource allocation.',
@@ -73,7 +73,7 @@ Building sustainable communities through technology requires careful considerati
 The future of sustainable communities lies in our ability to combine technological innovation with human wisdom, creating systems that serve both present needs and future generations.
     `
   },
-  'future-decentralized-governance': {
+  'the-future-of-decentralized-governance': {
     title: 'The Future of Decentralized Governance',
     image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80',
     description: 'Exploring how DAO voting mechanisms and transparent blockchain governance are reshaping democratic participation.',
@@ -167,6 +167,210 @@ As blockchain ecosystems become more interconnected, governance systems must evo
 Decentralized governance represents a powerful tool for creating more democratic, transparent, and efficient organizations. While challenges remain, ongoing innovation and real-world experimentation continue to refine these systems.
 
 The future of governance lies in finding the right balance between decentralization and efficiency, ensuring that power remains distributed while maintaining the ability to make timely decisions. As these systems mature, they have the potential to transform not just business organizations, but society itself.
+    `
+  },
+  'environmental-impact-of-blockchain-networks': {
+    title: 'Environmental Impact of Blockchain Networks',
+    image: 'https://images.unsplash.com/photo-1569163139394-de4e4f43e4e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80',
+    description: 'A comprehensive analysis of energy consumption in blockchain networks and emerging solutions for sustainable cryptocurrency operations.',
+    date: 'December 10, 2024',
+    author: 'Michael Torres',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    category: 'Environment',
+    readTime: '6 min read',
+    likes: 67,
+    views: 543,
+    content: `
+## Introduction
+
+The environmental impact of blockchain networks has become a critical concern as cryptocurrency adoption grows worldwide. This article examines the energy consumption patterns of different blockchain technologies and explores sustainable solutions being implemented across the industry.
+
+## Energy Consumption Patterns
+
+Different blockchain networks consume varying amounts of energy based on their consensus mechanisms and network size. Understanding these patterns is essential for evaluating environmental impact.
+
+### Proof of Work Systems
+
+Bitcoin and other proof-of-work networks require significant computational power for mining operations, leading to substantial energy consumption.
+
+### Proof of Stake Alternatives
+
+Newer consensus mechanisms like proof-of-stake offer dramatically reduced energy consumption while maintaining network security.
+
+## Sustainable Solutions
+
+The blockchain industry is actively developing solutions to reduce environmental impact while maintaining the benefits of decentralized technology.
+
+### Carbon Offset Programs
+
+Many blockchain projects now participate in carbon offset programs to neutralize their environmental impact.
+
+### Renewable Energy Integration
+
+Mining operations are increasingly powered by renewable energy sources, reducing their carbon footprint.
+
+## Conclusion
+
+While environmental concerns are valid, the blockchain industry is making significant progress toward sustainability through technological innovation and responsible practices.
+    `
+  },
+  'digital-identity-in-network-states': {
+    title: 'Digital Identity in Network States',
+    image: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80',
+    description: 'How digital identity systems are enabling new forms of citizenship and participation in virtual nation-states and online communities.',
+    date: 'December 8, 2024',
+    author: 'Emily Rodriguez',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    category: 'Identity',
+    readTime: '7 min read',
+    likes: 156,
+    views: 1687,
+    content: `
+## The Evolution of Digital Identity
+
+Digital identity systems are revolutionizing how we think about citizenship and participation in online communities. Network states represent a new frontier where digital identity enables unprecedented forms of governance and social organization.
+
+## Blockchain-Based Identity Systems
+
+Blockchain technology provides the foundation for secure, verifiable digital identities that transcend traditional national boundaries.
+
+### Self-Sovereign Identity
+
+Users maintain complete control over their digital identity credentials, reducing dependence on centralized authorities.
+
+### Verifiable Credentials
+
+Digital credentials can be instantly verified without revealing unnecessary personal information, enhancing both security and privacy.
+
+## Applications in Network States
+
+Digital identity systems enable new forms of virtual citizenship and community participation.
+
+### Virtual Citizenship
+
+Network states can issue digital citizenship based on contribution and participation rather than geographic location.
+
+### Governance Participation
+
+Digital identities enable secure voting and proposal systems in decentralized organizations.
+
+## Conclusion
+
+Digital identity systems are enabling new forms of social organization and governance that transcend traditional boundaries, creating opportunities for more inclusive and participatory communities.
+    `
+  },
+  'treasury-management-in-daos': {
+    title: 'Treasury Management in DAOs',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80',
+    description: 'Best practices for transparent treasury management, budget allocation, and financial accountability in decentralized autonomous organizations.',
+    date: 'December 5, 2024',
+    author: 'David Kim',
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    category: 'Finance',
+    readTime: '9 min read',
+    likes: 234,
+    views: 2156,
+    content: `
+## Introduction to DAO Treasury Management
+
+Effective treasury management is crucial for the long-term sustainability and success of decentralized autonomous organizations. This article explores best practices for transparent budget allocation and financial accountability.
+
+## Transparent Financial Operations
+
+DAOs must maintain complete transparency in their financial operations to build trust with community members and stakeholders.
+
+### On-Chain Transparency
+
+All financial transactions should be recorded on-chain for public verification and audit purposes.
+
+### Regular Reporting
+
+Periodic financial reports help community members understand resource allocation and spending patterns.
+
+## Budget Allocation Strategies
+
+Effective budget allocation requires careful planning and community input to ensure resources are used optimally.
+
+### Community Priorities
+
+Budget decisions should reflect community priorities as expressed through governance processes.
+
+### Risk Management
+
+Treasury diversification and risk management strategies protect against market volatility and unexpected expenses.
+
+## Accountability Mechanisms
+
+Strong accountability mechanisms ensure that treasury funds are used responsibly and effectively.
+
+### Governance Oversight
+
+Regular governance reviews of treasury spending maintain accountability to the community.
+
+### Performance Metrics
+
+Clear performance metrics help evaluate the effectiveness of treasury allocation decisions.
+
+## Conclusion
+
+Successful DAO treasury management requires a combination of transparency, community involvement, and sound financial practices to ensure long-term organizational sustainability.
+    `
+  },
+  'community-building-in-virtual-spaces': {
+    title: 'Community Building in Virtual Spaces',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80',
+    description: 'Strategies for fostering meaningful connections and engagement in digital communities and online collaborative environments.',
+    date: 'December 2, 2024',
+    author: 'Lisa Park',
+    avatar: 'https://images.unsplash.com/photo-1507101105822-7472b28e22ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    category: 'Community',
+    readTime: '4 min read',
+    likes: 98,
+    views: 789,
+    content: `
+## Building Meaningful Digital Communities
+
+Creating strong communities in virtual spaces requires intentional design and ongoing engagement strategies. This article explores proven methods for fostering meaningful connections in digital environments.
+
+## Foundation of Virtual Communities
+
+Successful virtual communities are built on shared values, clear communication channels, and inclusive participation mechanisms.
+
+### Shared Purpose
+
+Communities thrive when members are united by common goals and values that transcend individual interests.
+
+### Communication Platforms
+
+Effective communication tools enable both formal governance discussions and informal social interactions.
+
+## Engagement Strategies
+
+Maintaining active engagement requires diverse activities and incentives that appeal to different community members.
+
+### Gamification Elements
+
+Point systems, badges, and achievement levels can encourage participation and recognize valuable contributions.
+
+### Events and Activities
+
+Regular events, workshops, and collaborative projects help strengthen community bonds.
+
+## Governance and Moderation
+
+Effective governance structures and moderation policies ensure that virtual communities remain welcoming and productive spaces.
+
+### Community Guidelines
+
+Clear guidelines help maintain a positive environment while respecting diverse perspectives and backgrounds.
+
+### Conflict Resolution
+
+Established procedures for addressing disputes help maintain community harmony and trust.
+
+## Conclusion
+
+Building thriving virtual communities requires careful attention to both technical infrastructure and social dynamics, creating spaces where meaningful connections can flourish.
     `
   }
 };
