@@ -33,10 +33,47 @@ import {
   IconWallet,
   IconCheck,
   IconX,
-  IconClock
+  IconClock,
+  IconArrowUpRight,
+  IconArrowDownRight
 } from '@tabler/icons-react';
 
 // Mock data for governance dashboard
+const mockTransactions = [
+  {
+    id: 1,
+    type: "Treasury Allocation",
+    description: "Network Infrastructure Upgrade",
+    amount: -500,
+    date: "2024-03-15",
+    status: "completed"
+  },
+  {
+    id: 2,
+    type: "Reward Distribution", 
+    description: "Validator Rewards for Epoch 245",
+    amount: +150,
+    date: "2024-03-14",
+    status: "completed"
+  },
+  {
+    id: 3,
+    type: "Governance Vote",
+    description: "Proposal #12 Execution Fee",
+    amount: -25,
+    date: "2024-03-13", 
+    status: "completed"
+  },
+  {
+    id: 4,
+    type: "Community Fund",
+    description: "Developer Grant Payment",
+    amount: -300,
+    date: "2024-03-12",
+    status: "pending"
+  }
+];
+
 const mockProposals = [
   {
     id: 1,
@@ -437,11 +474,37 @@ export default function DashboardPage() {
                   
                   <Card withBorder p="lg">
                     <Title order={4} mb="md">Recent Transactions</Title>
-                    <Stack gap="xs">
-                      <Skeleton height={20} />
-                      <Skeleton height={20} />
-                      <Skeleton height={20} />
-                      <Text c="dimmed" size="sm">Transaction history coming soon...</Text>
+                    <Stack gap="sm">
+                      {mockTransactions.slice(0, 3).map((transaction) => (
+                        <Group key={transaction.id} justify="space-between" p="xs" style={{ borderRadius: 8, backgroundColor: 'var(--mantine-color-gray-0)' }}>
+                          <Group gap="sm">
+                            <ThemeIcon 
+                              size="sm" 
+                              variant="light" 
+                              color={transaction.amount > 0 ? 'green' : 'red'}
+                            >
+                              {transaction.amount > 0 ? 
+                                <IconArrowUpRight size={14} /> : 
+                                <IconArrowDownRight size={14} />
+                              }
+                            </ThemeIcon>
+                            <Stack gap={2}>
+                              <Text size="sm" fw={500}>{transaction.description}</Text>
+                              <Text size="xs" c="dimmed">{transaction.date}</Text>
+                            </Stack>
+                          </Group>
+                          <Text 
+                            size="sm" 
+                            fw={600} 
+                            c={transaction.amount > 0 ? 'green' : 'red'}
+                          >
+                            {transaction.amount > 0 ? '+' : ''}{transaction.amount} LLD
+                          </Text>
+                        </Group>
+                      ))}
+                      <Button variant="subtle" size="sm" fullWidth>
+                        View All Transactions
+                      </Button>
                     </Stack>
                   </Card>
                 </SimpleGrid>
