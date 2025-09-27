@@ -13,6 +13,7 @@ import { ErrorBoundary } from '@/components/error/ErrorBoundary';
 import HeaderMegaMenu from './Pages/Components/Header/Header';
 import { FooterLinks } from './Pages/Components/Footer/FooterLinks';
 import { ContentProvider } from './context/ContentContext';
+// import { Web3Provider } from '@/components/blockchain/Web3Provider'; // Temporarily disabled
 // import { AuthProvider } from '@/hooks';
 import { theme } from './theme';
 import { APP_CONFIG } from '@/lib/constants';

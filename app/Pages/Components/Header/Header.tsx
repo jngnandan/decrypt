@@ -142,6 +142,9 @@ export function HeaderMegaMenu() {
             <Link href="/about" className={classes.link}>
               About
             </Link>
+            <Link href="/dashboard" className={classes.link}>
+              Dashboard
+            </Link>
           </Group>
 
           <Group visibleFrom="sm">
@@ -187,6 +190,9 @@ export function HeaderMegaMenu() {
           </Link>
           <Link href="/about" className={classes.link}>
             About
+          </Link>
+          <Link href="/dashboard" className={classes.link}>
+            Dashboard
           </Link>
 
           <Divider my="sm" />
