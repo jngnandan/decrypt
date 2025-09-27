@@ -6,9 +6,13 @@ import {
   IconBuilding,
   IconCoins,
   IconUsers,
+  IconLogout,
+  IconUserCircle,
+  IconSettings,
 } from '@tabler/icons-react';
 import {
   Anchor,
+  Avatar,
   Box,
   Burger,
   Button,
@@ -18,6 +22,7 @@ import {
   Drawer,
   Group,
   HoverCard,
+  Menu,
   ScrollArea,
   SimpleGrid,
   Text,
@@ -27,6 +32,8 @@ import {
 } from '@mantine/core';
 import Link from 'next/link';
 import { useDisclosure } from '@mantine/hooks';
+import { useEffect, useState } from 'react';
+import { notifications } from '@mantine/notifications';
 import ColorSchemeToggle from './Demo';
 // import { MantineLogo } from '@mantinex/mantine-logo'; // Commented out - not available
 import classes from './HeaderMegaMenu.module.css';
@@ -61,7 +68,70 @@ const mockdata = [
 export function HeaderMegaMenu() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] = useDisclosure(false);
   const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
+  const [user, setUser] = useState<any>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const theme = useMantineTheme();
+
+  // Check authentication status
+  useEffect(() => {
+    const checkAuth = () => {
+      try {
+        // Check cookie first
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+          const [name, value] = cookie.trim().split('=');
+          if (name === 'user' && value) {
+            try {
+              const userData = JSON.parse(atob(value));
+              setUser(userData);
+              setIsAuthenticated(true);
+              return;
+            } catch (e) {
+              console.log('Cookie data invalid');
+            }
+          }
+        }
+        
+        // Check window property as fallback
+        if ((window as any).__user) {
+          const userData = (window as any).__user;
+          setUser(userData);
+          setIsAuthenticated(true);
+          return;
+        }
+      } catch (error) {
+        console.log('Auth check error:', error);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  // Logout function
+  const handleLogout = () => {
+    try {
+      // Clear cookie
+      document.cookie = 'user=; path=/; max-age=0';
+      // Clear window property
+      if ((window as any).__user) {
+        delete (window as any).__user;
+      }
+      
+      setUser(null);
+      setIsAuthenticated(false);
+      
+      notifications.show({
+        title: 'Logged Out Successfully',
+        message: 'You have been logged out of your account',
+        color: 'blue',
+      });
+      
+      // Redirect to home
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
 
   const links = mockdata.map((item) => (
     <Link href={item.href} key={item.title} style={{ textDecoration: 'none' }}>
@@ -149,12 +219,57 @@ export function HeaderMegaMenu() {
 
           <Group visibleFrom="sm">
             <ColorSchemeToggle />
-            <Link href="/login">
-              <Button variant="default" radius="xs">Log in</Button>
-            </Link>
-            <Link href="/signup">
-              <Button radius="xs">Sign up</Button>
-            </Link>
+            {isAuthenticated && user ? (
+              <Menu shadow="md" width={200}>
+                <Menu.Target>
+                  <UnstyledButton style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px', borderRadius: '8px' }}>
+                    <Avatar
+                      src={user.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.email}`}
+                      size={32}
+                      radius="xl"
+                    />
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+                      <Text size="sm" fw={500} style={{ lineHeight: 1.2 }}>
+                        {user.displayName || user.name || 'User'}
+                      </Text>
+                      <Text size="xs" c="dimmed" style={{ lineHeight: 1 }}>
+                        {user.email}
+                      </Text>
+                    </div>
+                    <IconChevronDown size={14} />
+                  </UnstyledButton>
+                </Menu.Target>
+
+                <Menu.Dropdown>
+                  <Menu.Label>Account</Menu.Label>
+                  <Menu.Item leftSection={<IconUserCircle size={14} />}>
+                    Profile
+                  </Menu.Item>
+                  <Menu.Item leftSection={<IconSettings size={14} />}>
+                    Settings
+                  </Menu.Item>
+                  
+                  <Menu.Divider />
+                  
+                  <Menu.Item 
+                    leftSection={<IconLogout size={14} />} 
+                    color="red"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Menu.Item>
+                </Menu.Dropdown>
+              </Menu>
+            ) : (
+              <>
+                <Link href="/login">
+                  <Button variant="default" radius="xs">Log in</Button>
+                </Link>
+                <Link href="/signup">
+                  <Button radius="xs">Sign up</Button>
+                </Link>
+              </>
+            )}
           </Group>
 
           <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -199,12 +314,20 @@ export function HeaderMegaMenu() {
 
           <Group justify="center" grow pb="xl" px="md">
             <ColorSchemeToggle />
-            <Link href="/login">
-              <Button variant="default" radius="xs">Log in</Button>
-            </Link>
-            <Link href="/signup">
-              <Button radius="xs">Sign up</Button>
-            </Link>
+            {isAuthenticated && user ? (
+              <Button variant="light" color="red" onClick={handleLogout} leftSection={<IconLogout size={16} />}>
+                Logout
+              </Button>
+            ) : (
+              <>
+                <Link href="/login">
+                  <Button variant="default" radius="xs">Log in</Button>
+                </Link>
+                <Link href="/signup">
+                  <Button radius="xs">Sign up</Button>
+                </Link>
+              </>
+            )}
           </Group>
         </ScrollArea>
       </Drawer>
