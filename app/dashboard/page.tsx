@@ -100,10 +100,17 @@ export default function DashboardPage() {
       }
     };
 
-    // Add a small delay to ensure localStorage is available
+    // Check auth immediately and also after a delay to be sure
+    checkAuth();
+    
+    // Also check after a brief delay to catch any timing issues
     setTimeout(() => {
-      checkAuth();
-    }, 100);
+      const userData = localStorage.getItem('user');
+      if (userData && !user) {
+        console.log('Dashboard: Second check found user data, re-running auth check');
+        checkAuth();
+      }
+    }, 200);
   }, []);
 
   // Redirect to login if not authenticated

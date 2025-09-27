@@ -47,26 +47,38 @@ export function LoginForm({ onSwitchToRegister, onForgotPassword }: LoginFormPro
         avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${email}`
       };
       
-      // Store in localStorage securely
+      // Store in localStorage securely and verify
       try {
         const userDataString = JSON.stringify(user);
         localStorage.setItem('user', userDataString);
+        
+        // Verify storage worked
+        const storedData = localStorage.getItem('user');
         console.log('Login: User stored:', user);
-        console.log('Login: Stored data:', localStorage.getItem('user'));
+        console.log('Login: Verification - stored data:', storedData);
+        
+        if (!storedData) {
+          throw new Error('Failed to store user data');
+        }
+        
+        // Show success notification
+        notifications.show({
+          title: 'Login Successful!',
+          message: `Welcome ${user.name}!`,
+          color: 'green',
+        });
+        
+        // Add small delay to ensure localStorage is fully written, then redirect
+        setTimeout(() => {
+          console.log('Redirecting to dashboard...');
+          console.log('Final check - user data:', localStorage.getItem('user'));
+          window.location.href = '/dashboard';
+        }, 500);
+        
       } catch (storageError) {
-        console.warn('Storage not available, continuing without persistence');
+        console.error('Storage error:', storageError);
+        setError('Login failed: Unable to store session');
       }
-      
-      // Show success notification
-      notifications.show({
-        title: 'Login Successful!',
-        message: `Welcome ${user.name}!`,
-        color: 'green',
-      });
-      
-      // Redirect to dashboard immediately
-      console.log('Redirecting to dashboard...');
-      window.location.href = '/dashboard';
       
     } catch (err) {
       console.error('Login error:', err);
