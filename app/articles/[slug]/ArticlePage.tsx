@@ -406,7 +406,7 @@ export default function ArticlePage({ slug }: { slug: string }) {
     <Container size="xl" py={40}>
       <Grid>
         {/* Main Article Content */}
-        <Grid.Col span={{ base: 12, md: 8 }}>
+        <Grid.Col span={{ base: 12, md: 9 }}>
           <Paper p={40} radius="md" withBorder>
             {/* Article Header */}
             <img 
@@ -492,7 +492,7 @@ export default function ArticlePage({ slug }: { slug: string }) {
         </Grid.Col>
         
         {/* Table of Contents Sidebar */}
-        <Grid.Col span={{ base: 12, md: 4 }}>
+        <Grid.Col span={{ base: 12, md: 3 }}>
           <TableOfContents data={headings} />
         </Grid.Col>
       </Grid>
