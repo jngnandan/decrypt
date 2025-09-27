@@ -54,7 +54,7 @@ export default function GoogleButton(props: ButtonProps & React.ComponentPropsWi
       // // Cleanup the listener on component unmount
       // return () => unsubscribe();
     }
-  }, [navigate]);
+  }, [router]);
 
   const handleClick = async () => {
     try {
