@@ -1,7 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Paper, Text, Anchor, Stack, Box } from '@mantine/core';
+import { IconListSearch } from '@tabler/icons-react';
+import cx from 'clsx';
+import { Box, Group, Text, Paper } from '@mantine/core';
+import classes from './TableOfContents.module.css';
 
 interface TocItem {
   label: string;
@@ -39,8 +42,8 @@ export default function TableOfContents({ data }: TableOfContentsProps) {
   }, [data]);
 
   const items = data.map((item) => (
-    <Anchor
-      key={item.label}
+    <Box<'a'>
+      component="a"
       href={item.link}
       onClick={(event) => {
         event.preventDefault();
@@ -50,42 +53,22 @@ export default function TableOfContents({ data }: TableOfContentsProps) {
           block: 'start',
         });
       }}
-      style={{
-        display: 'block',
-        color: active === item.link ? '#00aff0' : '#666',
-        fontSize: item.order === 1 ? '14px' : '13px',
-        fontWeight: item.order === 1 ? 500 : 400,
-        paddingLeft: item.order === 1 ? 0 : '16px',
-        paddingTop: '8px',
-        paddingBottom: '8px',
-        textDecoration: 'none',
-        borderLeft: active === item.link ? '2px solid #00aff0' : '2px solid transparent',
-        paddingRight: '12px',
-        marginLeft: item.order === 1 ? 0 : '8px',
-        transition: 'all 0.2s ease',
-      }}
-      onMouseEnter={(e) => {
-        if (active !== item.link) {
-          e.currentTarget.style.color = '#00aff0';
-        }
-      }}
-      onMouseLeave={(e) => {
-        if (active !== item.link) {
-          e.currentTarget.style.color = '#666';
-        }
-      }}
+      key={item.label}
+      className={cx(classes.link, { [classes.linkActive]: active === item.link })}
+      style={{ paddingLeft: `calc(${item.order} * var(--mantine-spacing-md))` }}
     >
       {item.label}
-    </Anchor>
+    </Box>
   ));
 
   return (
     <Box pos="sticky" top={20}>
       <Paper withBorder p="lg" radius="md">
-        <Text fw={500} mb="md" style={{ color: '#1a1a1a' }}>
-          Table of Contents
-        </Text>
-        <Stack gap={0}>{items}</Stack>
+        <Group mb="md">
+          <IconListSearch size={18} stroke={1.5} />
+          <Text>Table of contents</Text>
+        </Group>
+        {items}
       </Paper>
     </Box>
   );
