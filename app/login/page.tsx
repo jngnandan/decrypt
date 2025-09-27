@@ -1,14 +1,12 @@
 'use client';
 
-import { Container, Box } from '@mantine/core';
-import AuthenticationForm from '@/components/Authentication/Login/AuthenticationForm';
+import { Box } from '@mantine/core';
+import { AuthCard } from '@/components/auth/AuthCard';
 
 export default function LoginPage() {
   return (
     <Box bg="gray.0" mih="100vh">
-      <Container size="sm" py="xl">
-        <AuthenticationForm />
-      </Container>
+      <AuthCard />
     </Box>
   );
 }

@@ -3,15 +3,23 @@
 import { TextInput, PasswordInput, Button, Stack, Text, Anchor, Alert } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { IconAlertCircle, IconMail, IconLock, IconUser } from '@tabler/icons-react';
-import { useAuth } from '@/hooks';
-import type { RegisterCredentials } from '@/lib/types';
+import { useState } from 'react';
+import { notifications } from '@mantine/notifications';
+
+interface RegisterCredentials {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
 
 interface RegisterFormProps {
   onSwitchToLogin?: () => void;
 }
 
 export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
-  const { register, isLoading, error, clearError } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const form = useForm<RegisterCredentials>({
     initialValues: {
@@ -45,9 +53,52 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
   });
 
   const handleSubmit = async (values: RegisterCredentials) => {
-    clearError();
-    await register(values);
+    setError(null);
+    setIsLoading(true);
+    
+    try {
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Mock registration - basic validation
+      if (values.name && values.email && values.password.length >= 6 && values.password === values.confirmPassword) {
+        const user = {
+          id: '1',
+          email: values.email,
+          name: values.name,
+          displayName: values.name,
+          avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${values.email}`
+        };
+        
+        // Store user data in localStorage
+        localStorage.setItem('user', JSON.stringify(user));
+        
+        // Show success notification
+        notifications.show({
+          title: 'Welcome!',
+          message: `Account created for ${user.name}`,
+          color: 'green',
+        });
+        
+        // Redirect to dashboard
+        window.location.href = '/dashboard';
+      } else {
+        throw new Error('Please fill in all fields correctly and ensure passwords match');
+      }
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Registration failed';
+      setError(errorMessage);
+      notifications.show({
+        title: 'Registration failed',
+        message: errorMessage,
+        color: 'red',
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
+  
+  const clearError = () => setError(null);
 
   return (
     <form onSubmit={form.onSubmit(handleSubmit)}>
