@@ -11,13 +11,13 @@ import {
   ActionIcon,
 } from '@mantine/core';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
-import { ContactIconsList } from './ContactIcons.tsx';
+import { ContactIconsList } from './ContactIcons';
 import classes from './ContactUs.module.css';
-import FooterLinks from '../Components/Footer/FooterLinks.tsx';
+import FooterLinks from '../Components/Footer/FooterLinks';
 
 const social = [IconBrandTwitter, IconBrandYoutube, IconBrandInstagram];
 
-export function ContactUs() {
+function ContactUs() {
   const icons = social.map((Icon, index) => (
     <ActionIcon key={index} size={28} className={classes.social} variant="transparent">
       <Icon size="1.4rem" stroke={1.5} />
@@ -88,3 +88,5 @@ export function ContactUs() {
     </>
   );
 }
+
+export default ContactUs;

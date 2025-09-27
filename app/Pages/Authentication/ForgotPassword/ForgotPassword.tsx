@@ -20,7 +20,7 @@ import Link from "next/link";
 import { auth } from '../../../firebase.js';
 import { sendPasswordResetEmail } from 'firebase/auth';
 
-export function ForgotPassword() {
+function ForgotPassword() {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
@@ -31,11 +31,16 @@ export function ForgotPassword() {
     setMessage('');
 
     try {
+      // Firebase is temporarily disabled, show mock response
+      if (!auth) {
+        setMessage('Password reset feature temporarily disabled. Please contact support.');
+        return;
+      }
       await sendPasswordResetEmail(auth, email);
       setMessage('Password reset email sent. Please check your inbox.');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending password reset email:', error);
-      setMessage(`Error: ${error.message}`);
+      setMessage(`Error: ${error.message || 'Password reset failed'}`);
     } finally {
       setIsLoading(false);
     }
@@ -81,3 +86,5 @@ export function ForgotPassword() {
     </Container>
   );
 }
+
+export default ForgotPassword;
