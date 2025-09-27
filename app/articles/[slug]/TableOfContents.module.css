@@ -27,7 +27,7 @@
 
 .linkActive {
   font-weight: 500;
-  color: light-dark(var(--mantine-color-blue-7), var(--mantine-color-blue-4));
+  color: light-dark(var(--mantine-color-blue-6), var(--mantine-color-blue-4));
 }
 
 .indicator {

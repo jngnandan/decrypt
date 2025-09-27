@@ -67,8 +67,8 @@ export function HeaderMegaMenu() {
     <Link href={item.href} key={item.title} style={{ textDecoration: 'none' }}>
       <UnstyledButton className={classes.subLink}>
         <Group wrap="nowrap" align="flex-start">
-          <ThemeIcon size={34} variant="default" radius="md">
-            <item.icon size={22} color={theme.colors.blue[6]} />
+          <ThemeIcon size={40} variant="light" radius="md" color="blue">
+            <item.icon size={20} stroke={1.5} />
           </ThemeIcon>
           <div>
             <Text size="sm" fw={500}>
@@ -87,7 +87,7 @@ export function HeaderMegaMenu() {
     <Box>
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <div style={{ fontSize: '24px', fontWeight: 'bold' }}>Decrypt</div>
+          <div style={{ fontSize: '24px', fontWeight: '600' }}>Decrypt</div>
 
           <Group h="100%" gap={0} visibleFrom="sm">
             <Link href="/" className={classes.link}>
@@ -100,7 +100,7 @@ export function HeaderMegaMenu() {
                     <Box component="span" mr={5}>
                       Features
                     </Box>
-                    <IconChevronDown size={16} color={theme.colors.blue[6]} />
+                    <IconChevronDown size={16} stroke={1.5} />
                   </Center>
                 </a>
               </HoverCard.Target>

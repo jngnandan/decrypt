@@ -78,8 +78,8 @@ export default function TableOfContents({ data }: TableOfContentsProps) {
     <Box pos="sticky" top={20}>
       <div className={classes.root}>
         <Group mb="md">
-          <IconListSearch size={18} stroke={1.5} />
-          <Text>Table of contents</Text>
+          <IconListSearch size={20} stroke={1.5} />
+          <Text fw={500}>Table of contents</Text>
         </Group>
         <div className={classes.links}>
           <div

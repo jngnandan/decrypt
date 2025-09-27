@@ -444,15 +444,15 @@ export default function ArticlePage({ slug }: { slug: string }) {
               
               <Group gap="lg">
                 <Group gap="xs">
-                  <IconClock size={16} style={{ color: '#666' }} />
+                  <IconClock size={16} stroke={1.5} color="var(--mantine-color-dimmed)" />
                   <Text size="sm" c="dimmed">{article.readTime}</Text>
                 </Group>
                 <Group gap="xs">
-                  <IconHeart size={16} style={{ color: '#666' }} />
+                  <IconHeart size={16} stroke={1.5} color="var(--mantine-color-dimmed)" />
                   <Text size="sm" c="dimmed">{article.likes}</Text>
                 </Group>
                 <Group gap="xs">
-                  <IconEye size={16} style={{ color: '#666' }} />
+                  <IconEye size={16} stroke={1.5} color="var(--mantine-color-dimmed)" />
                   <Text size="sm" c="dimmed">{article.views}</Text>
                 </Group>
               </Group>
@@ -474,11 +474,11 @@ export default function ArticlePage({ slug }: { slug: string }) {
                     if (paragraph.startsWith('## ')) {
                       const title = paragraph.replace('## ', '');
                       const id = title.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
-                      return `<h2 id="${id}" style="font-size: 24px; font-weight: 600; margin: 32px 0 16px 0; color: #1a1a1a;">${title}</h2>`;
+                      return `<h2 id="${id}" style="font-size: 24px; font-weight: 500; margin: 32px 0 16px 0; color: #1a1a1a;">${title}</h2>`;
                     } else if (paragraph.startsWith('### ')) {
                       const title = paragraph.replace('### ', '');
                       const id = title.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
-                      return `<h3 id="${id}" style="font-size: 20px; font-weight: 600; margin: 24px 0 12px 0; color: #1a1a1a;">${title}</h3>`;
+                      return `<h3 id="${id}" style="font-size: 20px; font-weight: 500; margin: 24px 0 12px 0; color: #1a1a1a;">${title}</h3>`;
                     } else if (paragraph.startsWith('- ')) {
                       return `<ul style="margin: 16px 0; padding-left: 24px;"><li style="margin: 8px 0;">${paragraph.replace('- ', '')}</li></ul>`;
                     } else {

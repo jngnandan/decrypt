@@ -176,11 +176,11 @@ export function ArticleCard({ article }: { article: typeof mockdata[0] }) {
 
             <Group gap="lg">
               <Group gap="xs">
-                <IconHeart size={16} style={{ color: '#666' }} />
+                <IconHeart size={16} stroke={1.5} color="var(--mantine-color-dimmed)" />
                 <Text size="xs" c="dimmed">{article.likes}</Text>
               </Group>
               <Group gap="xs">
-                <IconEye size={16} style={{ color: '#666' }} />
+                <IconEye size={16} stroke={1.5} color="var(--mantine-color-dimmed)" />
                 <Text size="xs" c="dimmed">{article.views}</Text>
               </Group>
             </Group>
@@ -205,7 +205,7 @@ export function ArticlesCardsGrid() {
           order={2} 
           style={{ 
             fontSize: '36px', 
-            fontWeight: 700, 
+            fontWeight: 600, 
             color: '#1c1c1c',
             marginBottom: '16px'
           }}
