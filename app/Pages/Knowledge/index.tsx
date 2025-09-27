@@ -44,28 +44,28 @@ export default function KnowledgePage() {
       title: "Network State Basics",
       description: "Learn the core concepts of network states, digital sovereignty, and decentralized governance",
       action: "Start Learning",
-      link: "#basics"
+      link: "/about"
     },
     {
       icon: IconUsers,
       title: "Digital Citizenship",
       description: "Understand how digital citizenship works, rights, responsibilities, and participation",
       action: "Explore Citizenship",
-      link: "#citizenship"
+      link: "/about#citizenship"
     },
     {
       icon: IconShield,
       title: "Blockchain Governance",
       description: "Deep dive into blockchain-based governance, smart contracts, and consensus mechanisms",
       action: "Learn Governance",
-      link: "#governance"
+      link: "/governance"
     },
     {
       icon: IconCoin,
       title: "Digital Economy",
       description: "Discover how digital currencies, tokens, and economic systems work in network states",
       action: "Understand Economy",
-      link: "#economy"
+      link: "/about#economy"
     }
   ];
 
@@ -161,12 +161,12 @@ export default function KnowledgePage() {
 
   // Learning Resources
   const resources = [
-    { title: "Network State Whitepaper", description: "Comprehensive guide to network state theory and implementation" },
-    { title: "Digital Constitution", description: "Our constitutional framework and citizen rights" },
-    { title: "Governance Protocol", description: "Technical documentation for governance smart contracts" },
-    { title: "Token Economics Guide", description: "Understanding the digital economy and incentive structures" },
-    { title: "Citizen Handbook", description: "Practical guide for new citizens and community participation" },
-    { title: "Developer Documentation", description: "APIs, smart contracts, and technical integration guides" }
+    { title: "Network State Whitepaper", description: "Comprehensive guide to network state theory and implementation", link: "/about" },
+    { title: "Digital Constitution", description: "Our constitutional framework and citizen rights", link: "/governance" },
+    { title: "Governance Protocol", description: "Technical documentation for governance smart contracts", link: "/governance" },
+    { title: "Token Economics Guide", description: "Understanding the digital economy and incentive structures", link: "/blockchain" },
+    { title: "Citizen Handbook", description: "Practical guide for new citizens and community participation", link: "/about" },
+    { title: "Developer Documentation", description: "APIs, smart contracts, and technical integration guides", link: "/blockchain" }
   ];
 
   return (
@@ -211,6 +211,8 @@ export default function KnowledgePage() {
                 </Card.Section>
                 <Card.Section p="lg" pt="xs">
                   <Button 
+                    component="a"
+                    href={item.link}
                     variant="light" 
                     color="blue" 
                     fullWidth 
@@ -294,7 +296,17 @@ export default function KnowledgePage() {
                     <Badge key={i} variant="light" size="xs">{topic}</Badge>
                   ))}
                 </Group>
-                <Button variant="outline" size="sm" fullWidth radius="md">
+                <Button 
+                  component="a"
+                  href={area.title === "For Citizens" ? "/about" : 
+                        area.title === "For Developers" ? "/blockchain" :
+                        area.title === "For Researchers" ? "/socio-political" :
+                        area.title === "For Policymakers" ? "/governance" : "/about"}
+                  variant="outline" 
+                  size="sm" 
+                  fullWidth 
+                  radius="md"
+                >
                   Start Learning
                 </Button>
               </Paper>
@@ -310,11 +322,23 @@ export default function KnowledgePage() {
                 <Text size="sm" c="dimmed" mb="md" lh={1.5}>
                   {area.description}
                 </Text>
-                <Group gap="xs">
+                <Group gap="xs" mb="md">
                   {area.topics.slice(0, 2).map((topic, i) => (
                     <Badge key={i} variant="light" size="xs">{topic}</Badge>
                   ))}
                 </Group>
+                <Button 
+                  component="a"
+                  href={area.title === "For Researchers" ? "/socio-political" : 
+                        area.title === "For Policymakers" ? "/governance" :
+                        area.title === "For Entrepreneurs" ? "/blockchain" : "/about"}
+                  variant="outline" 
+                  size="sm" 
+                  fullWidth 
+                  radius="md"
+                >
+                  Start Learning
+                </Button>
               </Paper>
             ))}
           </SimpleGrid>
@@ -409,7 +433,7 @@ export default function KnowledgePage() {
 
           <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="lg">
             {resources.map((resource, index) => (
-              <Paper key={index} withBorder p="lg" radius="md">
+              <Paper key={index} withBorder p="lg" radius="md" component="a" href={resource.link} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <Group justify="space-between" mb="xs">
                   <ThemeIcon size={40} radius="xl" variant="light" color="blue">
                     <IconBook size={20} stroke={1.5} />
@@ -441,6 +465,8 @@ export default function KnowledgePage() {
 
             <Group justify="center" gap="lg">
               <Button 
+                component="a"
+                href="/about"
                 size="lg" 
                 leftSection={<IconHeart size={16} />}
                 radius="xl"
@@ -450,6 +476,10 @@ export default function KnowledgePage() {
                 Contribute Knowledge
               </Button>
               <Button 
+                component="a"
+                href="https://github.com/liberland"
+                target="_blank"
+                rel="noopener noreferrer"
                 size="lg" 
                 leftSection={<IconBrandGithub size={16} />}
                 radius="xl"
