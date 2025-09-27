@@ -218,9 +218,8 @@ export default function AboutDecrypt() {
         textAlign: 'center'
       }}>
         <Container size="lg">
-          <Title order={1} size="h1" fw={900} mb="xl" style={{ 
+          <Title order={1} size="h1" fw={500} mb="xl" style={{ 
             fontSize: '3.5rem',
-            fontFamily: 'serif',
             lineHeight: 1.2
           }}>
             The World's First{' '}
@@ -244,11 +243,11 @@ export default function AboutDecrypt() {
                   justifyContent: 'center',
                   marginBottom: '8px'
                 }}>
-                  <ThemeIcon size={40} radius="xl" variant="gradient" gradient={{ from: 'blue', to: 'cyan' }}>
-                    <stat.icon size={20} />
+                  <ThemeIcon size={40} radius="xl" variant="light" color="blue">
+                    <stat.icon size={20} stroke={1.5} />
                   </ThemeIcon>
                 </div>
-                <Text size="xl" fw={700} c="dark">{stat.number}</Text>
+                <Text size="xl" fw={500} c="dark">{stat.number}</Text>
                 <Text size="sm" c="dimmed">{stat.label}</Text>
               </div>
             ))}
@@ -260,9 +259,8 @@ export default function AboutDecrypt() {
       <div style={{ padding: '80px 0', background: 'white' }}>
         <Container size="lg">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <Title order={2} size="h2" fw={700} mb="lg" style={{ 
-              fontSize: '2.5rem',
-              fontFamily: 'serif'
+            <Title order={2} size="h2" fw={500} mb="lg" style={{ 
+              fontSize: '2.5rem'
             }}>
               What is a Network State?
             </Title>
@@ -277,15 +275,15 @@ export default function AboutDecrypt() {
             {networkStatePillars.map((pillar, index) => (
               <Paper key={index} withBorder shadow="sm" p="xl" radius="md" style={{ textAlign: 'center', height: '100%' }}>
                 <ThemeIcon 
-                  size={60} 
+                  size={50} 
                   radius="xl" 
-                  variant="gradient" 
-                  gradient={{ from: 'blue', to: 'cyan' }}
+                  variant="light" 
+                  color="blue"
                   mb="md"
                 >
-                  <pillar.icon size={30} />
+                  <pillar.icon size={20} stroke={1.5} />
                 </ThemeIcon>
-                <Title order={3} size="h4" fw={600} mb="sm">
+                <Title order={3} size="h4" fw={500} mb="sm">
                   {pillar.title}
                 </Title>
                 <Text size="sm" c="dimmed" lh={1.6}>
@@ -297,22 +295,22 @@ export default function AboutDecrypt() {
 
           {/* Network State Features */}
           <div style={{ marginTop: '80px' }}>
-            <Title order={2} size="h2" fw={700} mb="lg" ta="center">
+            <Title order={2} size="h2" fw={500} mb="lg" ta="center">
               How Our Network State Works
             </Title>
             <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="lg">
               {networkStateFeatures.map((feature, index) => (
                 <Paper key={index} withBorder shadow="sm" p="xl" radius="md" style={{ textAlign: 'center', height: '100%' }}>
                   <ThemeIcon 
-                    size={60} 
+                    size={50} 
                     radius="xl" 
-                    variant="gradient" 
-                    gradient={{ from: 'green', to: 'teal' }}
+                    variant="light" 
+                    color="green"
                     mb="md"
                   >
-                    <feature.icon size={30} />
+                    <feature.icon size={20} stroke={1.5} />
                   </ThemeIcon>
-                  <Title order={3} size="h4" fw={600} mb="sm">
+                  <Title order={3} size="h4" fw={500} mb="sm">
                     {feature.title}
                   </Title>
                   <Text size="sm" c="dimmed" lh={1.6}>
@@ -332,7 +330,7 @@ export default function AboutDecrypt() {
       }}>
         <Container size="lg">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <Title order={2} size="h2" fw={700} mb="lg">
+            <Title order={2} size="h2" fw={500} mb="lg">
               Our Digital Economy
             </Title>
             <Text size="lg" c="dimmed" maw={800} mx="auto" lh={1.6} mb="xl">
@@ -354,10 +352,10 @@ export default function AboutDecrypt() {
                     variant="gradient" 
                     gradient={{ from: token.color, to: token.color === 'blue' ? 'cyan' : 'teal' }}
                   >
-                    <token.icon size={30} />
+                    <token.icon size={20} stroke={1.5} />
                   </ThemeIcon>
                   <div>
-                    <Title order={3} size="h4" fw={600}>
+                    <Title order={3} size="h4" fw={500}>
                       {token.name}
                     </Title>
                     <Text size="sm" c="dimmed">
@@ -381,7 +379,7 @@ export default function AboutDecrypt() {
       <div style={{ padding: '80px 0', background: 'white' }}>
         <Container size="lg">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <Title order={2} size="h2" fw={700} mb="lg">
+            <Title order={2} size="h2" fw={500} mb="lg">
               Digital Democracy in Action
             </Title>
             <Text size="lg" c="dimmed" maw={800} mx="auto" lh={1.6}>
@@ -403,7 +401,7 @@ export default function AboutDecrypt() {
                 >
                   <feature.icon size={30} />
                 </ThemeIcon>
-                <Title order={3} size="h4" fw={600} mb="sm">
+                <Title order={3} size="h4" fw={500} mb="sm">
                   {feature.title}
                 </Title>
                 <Text size="sm" c="dimmed" lh={1.6}>
@@ -423,7 +421,7 @@ export default function AboutDecrypt() {
       }}>
         <Container size="lg">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <Title order={2} size="h2" fw={700} mb="lg" c="white">
+            <Title order={2} size="h2" fw={500} mb="lg" c="white">
               Services in Our Network State
             </Title>
             <Text size="lg" c="dimmed" maw={800} mx="auto" lh={1.6} mb="xl">
@@ -457,7 +455,7 @@ export default function AboutDecrypt() {
 
           {/* Network State Advantages */}
           <div style={{ marginBottom: '60px' }}>
-            <Title order={3} size="h3" fw={700} c="white" mb="lg" ta="center">
+            <Title order={3} size="h3" fw={500} c="white" mb="lg" ta="center">
               Why Choose Our Network State?
             </Title>
             <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="lg">
@@ -477,7 +475,7 @@ export default function AboutDecrypt() {
                   >
                     <advantage.icon size={25} />
                   </ThemeIcon>
-                  <Title order={4} size="h5" fw={600} c="white" mb="sm">
+                  <Title order={4} size="h5" fw={500} c="white" mb="sm">
                     {advantage.title}
                   </Title>
                   <Text size="sm" c="dimmed" lh={1.6}>
@@ -496,7 +494,7 @@ export default function AboutDecrypt() {
           }}>
             <Group justify="space-between" align="flex-start">
               <div style={{ flex: 1 }}>
-                <Title order={3} size="h4" fw={600} c="white" mb="md">
+                <Title order={3} size="h4" fw={500} c="white" mb="md">
                   Digital Asset Management
                 </Title>
                 <Text size="sm" c="dimmed" lh={1.6} mb="md">
@@ -524,7 +522,7 @@ export default function AboutDecrypt() {
                 {/* Placeholder for illustration */}
               </div>
               <div style={{ flex: 1 }}>
-                <Title order={3} size="h4" fw={600} c="white" mb="md">
+                <Title order={3} size="h4" fw={500} c="white" mb="md">
                   Educational Resources
                 </Title>
                 <Text size="sm" c="dimmed" lh={1.6} mb="md">
@@ -545,7 +543,7 @@ export default function AboutDecrypt() {
       <div style={{ padding: '80px 0', background: 'white' }}>
         <Container size="lg">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <Title order={2} size="h2" fw={700} mb="lg">
+            <Title order={2} size="h2" fw={500} mb="lg">
               Global Network State Community
             </Title>
             <Text size="lg" c="dimmed" maw={800} mx="auto" lh={1.6} mb="xl">
@@ -571,7 +569,7 @@ export default function AboutDecrypt() {
                 >
                   <stat.icon size={25} />
                 </ThemeIcon>
-                <Text size="xl" fw={700} c="dark">{stat.number}</Text>
+                <Text size="xl" fw={500} c="dark">{stat.number}</Text>
                 <Text size="sm" c="dimmed">{stat.label}</Text>
               </div>
             ))}
@@ -595,7 +593,7 @@ export default function AboutDecrypt() {
                 >
                   <card.icon size={25} color={card.color === 'yellow' ? '#1e40af' : 'white'} />
                 </ThemeIcon>
-                <Title order={3} size="h4" fw={600} mb="sm" c="white">
+                <Title order={3} size="h4" fw={500} mb="sm" c="white">
                   {card.title}
                 </Title>
                 <Text size="sm" c="white" lh={1.6}>
@@ -614,7 +612,7 @@ export default function AboutDecrypt() {
       }}>
         <Container size="lg">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <Title order={2} size="h2" fw={700} mb="lg">
+            <Title order={2} size="h2" fw={500} mb="lg">
               Network State FAQ
             </Title>
             <Text size="lg" c="dimmed" maw={600} mx="auto" lh={1.6} mb="xl">
@@ -647,7 +645,7 @@ export default function AboutDecrypt() {
                 <ThemeIcon size={40} radius="xl" variant="gradient" gradient={{ from: 'blue', to: 'cyan' }}>
                   <IconShield size={20} />
                 </ThemeIcon>
-                <Title order={3} size="h4" fw={600} c="white">
+                <Title order={3} size="h4" fw={500} c="white">
                   Decrypt Network State
                 </Title>
               </Group>
@@ -667,7 +665,7 @@ export default function AboutDecrypt() {
             
             <div style={{ display: 'flex', gap: '60px' }}>
               <div>
-                <Title order={4} size="h5" fw={600} c="white" mb="md">ABOUT</Title>
+                <Title order={4} size="h5" fw={500} c="white" mb="md">ABOUT</Title>
                 <Stack gap="xs">
                   {footerLinks.about.map((link, index) => (
                     <Anchor key={index} size="sm" c="dimmed" style={{ textDecoration: 'none' }}>
@@ -678,7 +676,7 @@ export default function AboutDecrypt() {
               </div>
               
               <div>
-                <Title order={4} size="h5" fw={600} c="white" mb="md">CITIZENSHIP</Title>
+                <Title order={4} size="h5" fw={500} c="white" mb="md">CITIZENSHIP</Title>
                 <Stack gap="xs">
                   {footerLinks.citizenship.map((link, index) => (
                     <Anchor key={index} size="sm" c="dimmed" style={{ textDecoration: 'none' }}>
@@ -689,7 +687,7 @@ export default function AboutDecrypt() {
               </div>
               
               <div>
-                <Title order={4} size="h5" fw={600} c="white" mb="md">GOVERNANCE</Title>
+                <Title order={4} size="h5" fw={500} c="white" mb="md">GOVERNANCE</Title>
                 <Stack gap="xs">
                   {footerLinks.governance.map((link, index) => (
                     <Anchor key={index} size="sm" c="dimmed" style={{ textDecoration: 'none' }}>
@@ -700,7 +698,7 @@ export default function AboutDecrypt() {
               </div>
               
               <div>
-                <Title order={4} size="h5" fw={600} c="white" mb="md">SUPPORT</Title>
+                <Title order={4} size="h5" fw={500} c="white" mb="md">SUPPORT</Title>
                 <Stack gap="xs">
                   {footerLinks.support.map((link, index) => (
                     <Anchor key={index} size="sm" c="dimmed" style={{ textDecoration: 'none' }}>
