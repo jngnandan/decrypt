@@ -386,20 +386,21 @@ export default function ArticlePage({ slug }: { slug: string }) {
     );
   }
 
-  const headings = [
-    { label: 'Introduction', link: '#introduction', order: 1 },
-    { label: 'The Foundation of Digital Communities', link: '#foundation', order: 1 },
-    { label: 'Key Characteristics', link: '#characteristics', order: 2 },
-    { label: 'Sustainable Resource Allocation', link: '#resource-allocation', order: 1 },
-    { label: 'Environmental Impact Considerations', link: '#environmental-impact', order: 2 },
-    { label: 'Governance Mechanisms', link: '#governance', order: 1 },
-    { label: 'DAO Voting Systems', link: '#dao-voting', order: 2 },
-    { label: 'Case Studies in Implementation', link: '#case-studies', order: 1 },
-    { label: 'Liberland: A Digital Nation-State', link: '#liberland', order: 2 },
-    { label: 'Future Implications', link: '#future', order: 1 },
-    { label: 'Challenges and Opportunities', link: '#challenges', order: 2 },
-    { label: 'Conclusion', link: '#conclusion', order: 1 }
-  ];
+  // Dynamically extract headings from content to match actual IDs
+  const headings = article.content
+    .split('\n\n')
+    .filter(paragraph => paragraph.startsWith('## ') || paragraph.startsWith('### '))
+    .map(paragraph => {
+      const isH2 = paragraph.startsWith('## ');
+      const title = paragraph.replace(isH2 ? '## ' : '### ', '');
+      const id = title.toLowerCase().replace(/[^a-z0-9\s]/g, '').replace(/\s+/g, '-');
+      
+      return {
+        label: title,
+        link: `#${id}`,
+        order: isH2 ? 1 : 2
+      };
+    });
 
   return (
     <Container size="xl" py={40}>

@@ -31,12 +31,15 @@ export default function TableOfContents({ data }: TableOfContentsProps) {
       { rootMargin: '-20% 0% -35% 0%' }
     );
 
-    data.forEach((item) => {
-      const element = document.querySelector(item.link);
-      if (element) {
-        observer.observe(element);
-      }
-    });
+    // Add delay to ensure DOM is ready
+    setTimeout(() => {
+      data.forEach((item) => {
+        const element = document.querySelector(item.link);
+        if (element) {
+          observer.observe(element);
+        }
+      });
+    }, 500);
 
     return () => observer.disconnect();
   }, [data]);
