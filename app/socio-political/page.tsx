@@ -1,5 +1,5 @@
 import { Container, Title, Text, SimpleGrid, ThemeIcon, Group, Stack, Box, Paper, Card } from '@mantine/core';
-import { IconUsers, IconMessageCircle, IconVote, IconBulb, IconTrendingUp, IconHeart } from '@tabler/icons-react';
+import { IconUsers, IconMessageCircle, IconCheck, IconBulb, IconTrendingUp, IconHeart } from '@tabler/icons-react';
 
 const features = [
   {
@@ -8,7 +8,7 @@ const features = [
     description: 'Open discussion platforms where citizens can engage in meaningful dialogue about social and political issues.',
   },
   {
-    icon: IconVote,
+    icon: IconCheck,
     title: 'Opinion Polls',
     description: 'Regular polling mechanisms to gauge public sentiment and inform policy decisions through community input.',
   },

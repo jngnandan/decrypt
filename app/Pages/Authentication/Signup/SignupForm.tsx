@@ -36,7 +36,7 @@ export default function SignupForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [initialLoading, setInitialLoading] = useState(true);
-  const navigate = useRouter();
+  const router = useRouter();
   const { addNotification } = useContent();
 
   useEffect(() => {
@@ -94,8 +94,8 @@ export default function SignupForm() {
     }
   };
 
-  const pageTitle = "Sign Up | Protocon";
-  const pageDescription = "Create an account on Protocon to connect with mentors and start your learning journey.";
+  const pageTitle = "Sign Up | Decrypt";
+  const pageDescription = "Create an account on Decrypt to explore digital governance and participate in network state concepts.";
 
   const iconStyle = { width: rem(18), height: rem(18) };
   const userIcon = <IconUser style={iconStyle} />;

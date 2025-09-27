@@ -9,7 +9,7 @@ import { IconChevronRight } from '@tabler/icons-react';
 import { TableOfContents } from './TableOfContents.tsx'; // Adjust the import path as needed
 
 function UserDetails() {
-  const navigate = useRouter();
+  const router = useRouter();
   const { setPaymentOptions } = useContext(ContentContext);
   const [bookingStep, setBookingStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -23,9 +23,9 @@ function UserDetails() {
   });
 
   const plans = [
-    { name: 'Resume Feedback', duration: '30 minutes', price: 89 },
-    { name: 'Portfolio Feedback', duration: '30 minutes', price: 89 },
-    { name: 'Work Review', duration: '45 minutes', price: 119 },
+    { name: 'Basic Consultation', duration: '30 minutes', price: 89 },
+    { name: 'Digital Governance Session', duration: '30 minutes', price: 89 },
+    { name: 'Network State Review', duration: '45 minutes', price: 119 },
     { name: 'Expert Consultation', duration: '60 minutes', price: 189 },
   ];
 
@@ -39,12 +39,12 @@ function UserDetails() {
   ];
 
   const concerns = [
-    'Career Development', 'Job Search Strategies', 'Resume and Cover Letter Writing',
-    'Interview Preparation', 'Networking Skills', 'Professional Growth',
-    'Work-Life Balance', 'Leadership Development', 'Performance Management',
-    'Career Transition', 'Skill Enhancement', 'Time Management',
-    'Workplace Communication', 'Team Collaboration', 'Dealing with Workplace Challenges',
-    'Career Path Exploration', 'Personal Branding',
+    'Digital Governance', 'Network State Concepts', 'Blockchain Democracy',
+    'Decentralized Systems', 'Digital Citizenship', 'Constitutional Framework',
+    'Token Economics', 'Community Building', 'Policy Development',
+    'Technology Integration', 'Legal Frameworks', 'Governance Protocols',
+    'Social Coordination', 'Economic Models', 'Platform Development',
+    'Regulatory Compliance', 'Digital Identity',
   ];
 
   const handleNext = () => setBookingStep(2);
@@ -59,7 +59,7 @@ function UserDetails() {
       price: selectedPlanDetails?.price || 0,
     };
     setPaymentOptions(prevOptions => [...prevOptions, newPaymentOption]);
-    router.push('/mentors/payment');
+    router.push('/payment');
   };
 
   const formatDate = (date) => {
@@ -72,8 +72,8 @@ function UserDetails() {
 
   const breadcrumbItems = [
     { title: 'Home', href: '/' },
-    { title: 'Mentors', href: '/mentors' },
-    { title: 'Booking', href: '/mentors/booking' },
+    { title: 'Services', href: '/about' },
+    { title: 'Booking', href: '/user-details' },
   ];
 
   return (
@@ -86,7 +86,7 @@ function UserDetails() {
         ))}
       </Breadcrumbs>
 
-      <Title order={2} mb="xl">Book Your Mentorship Session</Title>
+      <Title order={2} mb="xl">Book Your Consultation Session</Title>
 
       <div className="flex space-x-10">
         {/* Left Column - Booking Form */}
@@ -98,7 +98,7 @@ function UserDetails() {
               </Card.Section>
 
               <Card.Section inheritPadding py="md">
-                <Text className="text-sm text-gray-600 mb-4">Your appointment will be booked with Lizu Kaur</Text>
+                <Text className="text-sm text-gray-600 mb-4">Your consultation appointment will be scheduled</Text>
                 <TextInput
                   type="date"
                   value={selectedDate ? selectedDate.toISOString().split('T')[0] : ''}

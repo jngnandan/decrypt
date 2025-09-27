@@ -44,9 +44,7 @@ export default function ArticleCard({
       shadow='sm'
     >
       <Card.Section>
-        <Link href={`/mentors/${id}`}>
-          <Image src={profilepic} height={180} fit="cover" className="rounded-t-md" />
-        </Link>
+        <Image src={profilepic} height={180} fit="cover" className="rounded-t-md" />
       </Card.Section>
 
       {/* <Badge className="absolute top-2 right-3 pointer-events-none" variant="gradient" gradient={badgeGradient}>

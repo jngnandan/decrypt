@@ -38,7 +38,7 @@ function GoogleIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export default function GoogleButton(props: ButtonProps & React.ComponentPropsWithoutRef<'button'>) {
   const [user, setUser] = useState(null);
-  const navigate = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     // Check if the user is already authenticated
@@ -46,8 +46,8 @@ export default function GoogleButton(props: ButtonProps & React.ComponentPropsWi
       // const unsubscribe = onAuthStateChanged(auth, (user) => {
       //   if (user) {
       //     setUser(user);
-      //     // If the user is logged in, redirect them to the "mentors" page
-      //     router.push('/mentors');
+      //     // If the user is logged in, redirect them to the home page
+      //     router.push('/about');
       //   }
       // });
 
@@ -60,11 +60,11 @@ export default function GoogleButton(props: ButtonProps & React.ComponentPropsWi
     try {
       if (auth) {
         // await signInWithGoogle();
-        router.push('/mentors'); // Redirect to the "mentors" page after successful sign-in
+        router.push('/about'); // Redirect to the about page after successful sign-in
       } else {
         // Mock Google sign-in for demo purposes
         console.log('Mock Google sign-in');
-        router.push('/mentors');
+        router.push('/about');
       }
     } catch (error) {
       console.error('Error signing in with Google:', error);

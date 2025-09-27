@@ -1,9 +1,9 @@
 import { Container, Title, Text, SimpleGrid, ThemeIcon, Group, Stack, Box, Paper, Card } from '@mantine/core';
-import { IconBuilding, IconVote, IconShield, IconUsers, IconChartBar, IconLock } from '@tabler/icons-react';
+import { IconBuilding, IconCheck, IconShield, IconUsers, IconChartBar, IconLock } from '@tabler/icons-react';
 
 const features = [
   {
-    icon: IconVote,
+    icon: IconCheck,
     title: 'Decentralized Voting',
     description: 'Transparent, tamper-proof voting mechanisms that ensure every voice is heard and every vote counts.',
   },

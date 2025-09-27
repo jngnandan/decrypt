@@ -15,28 +15,28 @@ function HomePage() {
     <div className="relative">
       <Helmet>
         <title>
-          Protocon Mentorship Platform | Empowering Growth Through Mentorship
+          Decrypt | Digital Governance & Network State Platform
         </title>
         <meta
           name="description"
-          content="Protocon is a mentorship platform offering personalized growth opportunities. Connect with mentors across various fields and boost your career."
+          content="Decrypt is a platform for digital governance, blockchain democracy, and network state concepts. Learn about decentralized governance and participate in the future of digital nations."
         />
         <meta
           name="keywords"
-          content="mentorship, protocon, career growth, professional development, mentoring platform"
+          content="digital governance, network state, blockchain democracy, decentralized governance, liberland, digital citizenship"
         />
-        <meta property="og:title" content="Protocon Mentorship Platform" />
+        <meta property="og:title" content="Decrypt - Digital Governance Platform" />
         <meta
           property="og:description"
-          content="Empower your career with Protocon's mentorship platform. Connect with experienced mentors and achieve your professional goals."
+          content="Explore the future of digital governance with Decrypt. Learn about network states, blockchain democracy, and decentralized governance systems."
         />
         <meta property="og:image" content="URL_to_image_for_open_graph" />
         <meta property="og:url" content="URL_to_your_page" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Protocon Mentorship Platform" />
+        <meta name="twitter:title" content="Decrypt - Digital Governance Platform" />
         <meta
           name="twitter:description"
-          content="Empower your career with Protocon's mentorship platform. Connect with experienced mentors and achieve your professional goals."
+          content="Explore the future of digital governance with Decrypt. Learn about network states, blockchain democracy, and decentralized governance systems."
         />
         <meta name="twitter:image" content="URL_to_image_for_twitter" />
       </Helmet>

@@ -6,7 +6,7 @@ function Privacy() {
     <Container size="md" className="my-20">
       <Paper shadow="xs" p="xl" withBorder>
         <Title order={1} align="center" mb="xl">
-          Privacy Policy for Protocon
+          Privacy Policy for Decrypt
         </Title>
         <Text align="center" color="dimmed" mb="xl">
           Effective Date: October 10, 2024
@@ -17,7 +17,7 @@ function Privacy() {
         {[
           {
             title: "1. Introduction",
-            content: "Welcome to Protocon, a mentorship application designed to connect mentors and mentees. At Protocon, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and protect your information when you use our application. By using Protocon, you agree to the collection and use of information in accordance with this policy. We encourage you to read this policy carefully to understand our practices regarding your personal data."
+            content: "Welcome to Decrypt, a digital governance platform designed to explore network states and blockchain democracy. At Decrypt, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and protect your information when you use our application. By using Decrypt, you agree to the collection and use of information in accordance with this policy. We encourage you to read this policy carefully to understand our practices regarding your personal data."
           },
           {
             title: "2. Information We Collect",
@@ -50,7 +50,7 @@ function Privacy() {
               <>
                 <Text mb="md">We use the collected information for various purposes to provide, maintain, and improve our services. These purposes include:</Text>
                 <List>
-                  <List.Item>To facilitate and manage mentor-mentee relationships within our platform</List.Item>
+                  <List.Item>To facilitate and manage user engagement and participation within our platform</List.Item>
                   <List.Item>To provide and maintain our service, including troubleshooting and supporting you when you have questions</List.Item>
                   <List.Item>To notify you about changes to our service, terms, or policies</List.Item>
                   <List.Item>To allow you to participate in interactive features of our service when you choose to do so</List.Item>
