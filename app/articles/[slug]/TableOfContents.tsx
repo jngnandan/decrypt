@@ -66,13 +66,11 @@ export default function TableOfContents({ data }: TableOfContentsProps) {
 
   return (
     <Box pos="sticky" top={20}>
-      <Paper withBorder p="lg" radius="md">
-        <Group mb="md">
-          <IconListSearch size={18} stroke={1.5} />
-          <Text>Table of contents</Text>
-        </Group>
-        {items}
-      </Paper>
+      <Group mb="md">
+        <IconListSearch size={18} stroke={1.5} />
+        <Text>Table of contents</Text>
+      </Group>
+      {items}
     </Box>
   );
 }
