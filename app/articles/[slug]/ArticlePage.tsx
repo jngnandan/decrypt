@@ -407,7 +407,7 @@ export default function ArticlePage({ slug }: { slug: string }) {
       <Grid>
         {/* Main Article Content */}
         <Grid.Col span={{ base: 12, md: 9 }}>
-          <Paper p={40} radius="md" withBorder>
+          <Paper p={40} radius="md">
             {/* Article Header */}
             <img 
               src={article.image} 
