@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TextInput, Button, Container, Title, Text, Paper, Grid } from '@mantine/core';
-import axios from 'axios'; // For sending HTTP requests
+import { TextInput, Button, Container, Title, Text, Paper, Anchor, Center, Box } from '@mantine/core';
+import axios from 'axios';
 import '@mantine/core/styles.css';
 
 export default function NewsletterSignup() {
@@ -13,12 +13,11 @@ export default function NewsletterSignup() {
     setLoading(true);
 
     try {
-      // Ensure the URL matches your backend route
       await axios.post('/newsletter/subscribe', { email });
       setMessage('Thank you for subscribing to our newsletter!');
       setEmail('');
     } catch (error) {
-      console.error('Subscription error:', error); // Log error for debugging
+      console.error('Subscription error:', error);
       setMessage('Failed to subscribe. Please try again.');
     } finally {
       setLoading(false);
@@ -27,43 +26,66 @@ export default function NewsletterSignup() {
 
   return (
     <div style={{ 
-      borderTop: '1px solid rgba(233, 236, 239, 0.3)', 
-      position: 'relative',
-      backgroundImage: 'url("https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2029&q=80")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      minHeight: '400px',
+      backgroundColor: '#f8f9fa',
+      minHeight: '500px',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      padding: '80px 0'
     }}>
-      <Container size="lg" py="xl">
-        <Grid justify="center" style={{ width: '100%' }} gutter="xl">
-          <Grid.Col span={12} md={10} lg={8}>
-            <Paper withBorder shadow="xl" p={20} radius="md" style={{ 
-              backgroundColor: 'rgba(255, 255, 255, 0.98)',
-              backdropFilter: 'blur(15px)',
-              border: '1px solid rgba(255, 255, 255, 0.3)'
-            }}>
-              <Title align="center" mb="md" c="dark">Subscribe to our Newsletter</Title>
-              <form onSubmit={handleSubmit}>
-                <TextInput
-                  label="Email"
-                  placeholder="you@example.com"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  radius="xs"
-                />
-                <Button type="submit" className='w/2' mt="md" disabled={loading} radius="xs">
-                  {loading ? 'Submitting...' : 'Subscribe'}
-                </Button>
-                {message && <Text mt="md" align="center">{message}</Text>}
-              </form>
-            </Paper>
-          </Grid.Col>
-        </Grid>
+      <Container size={420}>
+        <Center>
+          <Paper withBorder shadow="md" p={30} radius="md" style={{ width: '100%', maxWidth: 420 }}>
+            <Title order={2} ta="center" mb={5}>
+              Stay Updated with Liberland
+            </Title>
+            
+            <Text c="dimmed" size="sm" ta="center" mb={30}>
+              Enter your email to receive updates about our blockchain governance innovations
+            </Text>
+
+            <form onSubmit={handleSubmit}>
+              <TextInput
+                label="Your email"
+                placeholder="your@email.com"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                radius="md"
+                size="md"
+                mb="md"
+              />
+              
+              <Button 
+                type="submit" 
+                fullWidth 
+                mt="xl" 
+                size="md"
+                disabled={loading}
+                style={{ backgroundColor: '#00aff0' }}
+              >
+                {loading ? 'Subscribing...' : 'Subscribe to updates'}
+              </Button>
+              
+              {message && (
+                <Text 
+                  mt="md" 
+                  ta="center" 
+                  size="sm"
+                  c={message.includes('Thank you') ? 'teal' : 'red'}
+                >
+                  {message}
+                </Text>
+              )}
+            </form>
+
+            <Text c="dimmed" size="xs" ta="center" mt={20}>
+              <Anchor href="/" size="xs" c="dimmed">
+                Back to home page
+              </Anchor>
+            </Text>
+          </Paper>
+        </Center>
       </Container>
     </div>
   );
