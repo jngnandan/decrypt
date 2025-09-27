@@ -62,11 +62,9 @@ export function LoginForm({ onSwitchToRegister, onForgotPassword }: LoginFormPro
         color: 'green',
       });
       
-      // Redirect using Next.js router (secure)
-      setTimeout(() => {
-        console.log('Redirecting to dashboard...');
-        router.push('/dashboard');
-      }, 1000);
+      // Redirect to dashboard immediately
+      console.log('Redirecting to dashboard...');
+      window.location.href = '/dashboard';
       
     } catch (err) {
       console.error('Login error:', err);

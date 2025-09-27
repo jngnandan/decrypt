@@ -84,10 +84,8 @@ export function RegisterForm({ onSwitchToLogin }: RegisterFormProps) {
           color: 'green',
         });
         
-        // Redirect to dashboard using Next.js router
-        setTimeout(() => {
-          window.location.assign('/dashboard');
-        }, 1000);
+        // Redirect to dashboard immediately
+        window.location.href = '/dashboard';
       } else {
         throw new Error('Please fill in all fields correctly and ensure passwords match');
       }
