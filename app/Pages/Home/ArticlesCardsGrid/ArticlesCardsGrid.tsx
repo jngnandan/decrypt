@@ -135,7 +135,7 @@ export function ArticleCard({ article }: { article: typeof mockdata[0] }) {
         </AspectRatio>
       </Card.Section>
 
-      <Card.Section p="lg" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <Card.Section p="md" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <Group justify="space-between" mb="sm">
           <Badge 
             style={{ 
@@ -152,27 +152,19 @@ export function ArticleCard({ article }: { article: typeof mockdata[0] }) {
           </Text>
         </Group>
 
-        <Stack gap="sm" style={{ flex: 1 }}>
-          <Title order={3} size="lg" style={{ lineHeight: 1.3, marginBottom: '8px' }}>
+        <Stack gap="xs" style={{ flex: 1 }}>
+          <Title order={3} size="md" style={{ lineHeight: 1.3, marginBottom: '4px' }}>
             {article.title}
           </Title>
 
-          <Text size="sm" c="dimmed" style={{ lineHeight: 1.5, flex: 1 }}>
+          <Text size="sm" c="dimmed" style={{ lineHeight: 1.4, flex: 1 }}>
             {article.description}
           </Text>
 
-          <Group justify="space-between" align="center" mt="md">
-            <Group gap="xs">
-              <Avatar src={article.avatar} size={32} radius="xl" />
-              <Box>
-                <Text size="sm" fw={500}>
-                  {article.author}
-                </Text>
-                <Text size="xs" c="dimmed">
-                  {article.date}
-                </Text>
-              </Box>
-            </Group>
+          <Group justify="space-between" align="center" mt="sm">
+            <Text size="xs" c="dimmed">
+              {article.date}
+            </Text>
 
             <Group gap="lg">
               <Group gap="xs">
