@@ -10,14 +10,23 @@ import { IconCalendar, IconClock, IconUser, IconMail, IconPhone, IconCheck } fro
 import { Card, Text, Group, Stack, SimpleGrid, Button, TextInput } from '@mantine/core';
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.REACT_APP_SUPABASE_URL || '', 
-  process.env.REACT_APP_SUPABASE_ANON_KEY || ''
-);
+// Create Supabase client only if environment variables are available
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+const supabase = (supabaseUrl && supabaseAnonKey) 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null;
 
 const updateBookingInProfile = async (profileId: string, bookingDetails: any) => {
   try {
     console.log('Updating profile with ID:', profileId, 'and booking details:', bookingDetails);
+    
+    if (!supabase) {
+      console.warn('Supabase client not available - environment variables missing');
+      return null;
+    }
+    
     const { data, error } = await supabase
       .from('profiles')
       .update({ bookings: bookingDetails })

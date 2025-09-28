@@ -5,8 +5,8 @@ import React, { createContext, useState, useEffect, useContext, useReducer } fro
 import { signInWithGoogle, auth } from '../firebase'; // Ensure this path is correct
 
 // Temporarily disable Supabase
-// const supabaseUrl = process.env.REACT_APP_SUPABASE_URL!;
-// const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY!;
+// const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+// const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
 // const supabase: SupabaseClient = createClient(supabaseUrl, supabaseAnonKey);
 const supabase = null;
 
