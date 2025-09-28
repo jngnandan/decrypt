@@ -18,14 +18,14 @@ import {
 } from '@mantine/core';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+// import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'; // Temporarily disabled
 import { IconUser, IconMail, IconLock } from '@tabler/icons-react';
 import GoogleButton from './GoogleButton';
 import TwitterButton from './TwitterButton';
 import classes from './AuthenticationTitle.module.css';
 import { useContent } from '../../../app/context/ContentContext'; // Adjust the import path as needed
 
-const auth = getAuth();
+// const auth = getAuth(); // Temporarily disabled
 
 export default function SignupForm() {
   const [firstName, setFirstName] = useState('');
@@ -51,11 +51,12 @@ export default function SignupForm() {
     setLoading(true);
   
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const firebaseUser = userCredential.user;
+      // Firebase auth temporarily disabled
+      // const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      // const firebaseUser = userCredential.user;
   
-      await sendEmailVerification(firebaseUser);
-      console.log('User signed up:', { displayName: `${firstName} ${lastName}`, email: firebaseUser.email });
+      // await sendEmailVerification(firebaseUser);
+      console.log('User signup temporarily disabled - Firebase auth disabled');
   
       // Send push notification
       addNotification({

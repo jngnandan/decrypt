@@ -17,8 +17,8 @@ import {
 import { IconArrowLeft } from '@tabler/icons-react';
 import classes from './ForgotPassword.module.css';
 import Link from 'next/link';
-import { auth } from '../../../app/firebase';
-import { sendPasswordResetEmail } from 'firebase/auth';
+// import { auth } from '../../../app/firebase'; // Temporarily disabled  
+// import { sendPasswordResetEmail } from 'firebase/auth'; // Temporarily disabled
 
 export function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -31,12 +31,13 @@ export function ForgotPassword() {
     setMessage('');
 
     try {
-      if (auth) {
-        await sendPasswordResetEmail(auth, email);
-        setMessage('Password reset email sent. Please check your inbox.');
-      } else {
+      // Firebase auth temporarily disabled
+      // if (auth) {
+      //   await sendPasswordResetEmail(auth, email);
+      //   setMessage('Password reset email sent. Please check your inbox.');
+      // } else {
         setMessage('Authentication service is currently unavailable.');
-      }
+      // }
     } catch (error) {
       console.error('Error sending password reset email:', error);
       setMessage(`Error: ${error instanceof Error ? error.message : 'An unknown error occurred'}`);

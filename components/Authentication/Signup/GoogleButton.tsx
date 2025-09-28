@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button, ButtonProps } from '@mantine/core';
 import { useRouter } from 'next/navigation';
-import { onAuthStateChanged } from 'firebase/auth';
-import { signInWithGoogle, auth } from '../../../app/firebase'; // Updated path to correct firebase location
+// import { onAuthStateChanged } from 'firebase/auth'; // Temporarily disabled
+// import { signInWithGoogle, auth } from '../../../app/firebase'; // Temporarily disabled
 
 function GoogleIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -40,27 +40,30 @@ export default function GoogleButton(props: ButtonProps & React.ComponentPropsWi
   const router = useRouter();
 
   useEffect(() => {
+    // Firebase auth temporarily disabled
     // Check if the user is already authenticated
-    if (auth) {
-      const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if (user) {
-          setUser(user);
-          // If the user is logged in, redirect them to the "mentors" page
-          router.push('/mentors');
-        }
-      });
+    // if (auth) {
+    //   const unsubscribe = onAuthStateChanged(auth, (user) => {
+    //     if (user) {
+    //       setUser(user);
+    //       // If the user is logged in, redirect them to the "mentors" page
+    //       router.push('/mentors');
+    //     }
+    //   });
 
-      // Cleanup the listener on component unmount
-      return () => unsubscribe();
-    }
+    //   // Cleanup the listener on component unmount
+    //   return () => unsubscribe();
+    // }
   }, [router]);
 
   const handleClick = async () => {
     try {
-      if (signInWithGoogle) {
-        await signInWithGoogle();
-        router.push('/mentors'); // Redirect to the "mentors" page after successful sign-in
-      }
+      // Firebase auth temporarily disabled
+      // if (signInWithGoogle) {
+      //   await signInWithGoogle();
+      //   router.push('/mentors'); // Redirect to the "mentors" page after successful sign-in
+      // }
+      console.log('Google sign-in temporarily disabled');
     } catch (error) {
       console.error('Error signing in with Google:', error);
       // Handle errors, show notifications, etc.
