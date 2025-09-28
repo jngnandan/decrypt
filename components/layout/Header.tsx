@@ -1,7 +1,7 @@
 import { Container, Title, Text, Group, Button, Avatar, Menu, ActionIcon } from '@mantine/core';
 import { IconLogout, IconUser, IconSettings } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
-// import { useAuth } from '@/hooks';
+import { useAuth } from '@/hooks';
 import { APP_CONFIG } from '@/lib/constants';
 
 interface HeaderProps {
@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export function Header({ onDecryptClick }: HeaderProps) {
   const router = useRouter();
-  // const { isAuthenticated, user, logout } = useAuth();
+  const { isAuthenticated, user, logout } = useAuth();
 
   const handleLogin = () => {
     router.push('/login');

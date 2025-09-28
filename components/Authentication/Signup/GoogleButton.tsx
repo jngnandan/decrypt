@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, ButtonProps } from '@mantine/core';
 import { useRouter } from 'next/navigation';
 import { onAuthStateChanged } from 'firebase/auth';
-import { signInWithGoogle, auth } from '../../../firebase.js'; // Ensure this is correctly pointing to your firebase utility functions
+import { signInWithGoogle, auth } from '../../../app/firebase'; // Updated path to correct firebase location
 
 function GoogleIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
@@ -36,27 +36,31 @@ function GoogleIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 export default function GoogleButton(props: ButtonProps & React.ComponentPropsWithoutRef<'button'>) {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any>(null);
   const router = useRouter();
 
   useEffect(() => {
     // Check if the user is already authenticated
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        // If the user is logged in, redirect them to the "mentors" page
-        router.push('/mentors');
-      }
-    });
+    if (auth) {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setUser(user);
+          // If the user is logged in, redirect them to the "mentors" page
+          router.push('/mentors');
+        }
+      });
 
-    // Cleanup the listener on component unmount
-    return () => unsubscribe();
+      // Cleanup the listener on component unmount
+      return () => unsubscribe();
+    }
   }, [router]);
 
   const handleClick = async () => {
     try {
-      await signInWithGoogle();
-      router.push('/mentors'); // Redirect to the "mentors" page after successful sign-in
+      if (signInWithGoogle) {
+        await signInWithGoogle();
+        router.push('/mentors'); // Redirect to the "mentors" page after successful sign-in
+      }
     } catch (error) {
       console.error('Error signing in with Google:', error);
       // Handle errors, show notifications, etc.
